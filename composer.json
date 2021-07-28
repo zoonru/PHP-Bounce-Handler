@@ -1,5 +1,5 @@
 {
-	"name":"shepik/PHP-Bounce-Handler"
+	"name":"zoonru/PHP-Bounce-Handler"
 	,"version": "7.8.1"
 	,"autoload": { "classmap": ["bounce_driver.class.php"] }
 }
