@@ -113,9 +113,9 @@ class BounceHandler {
         if (!empty($mime_sections['returned_message_body_part'])) {
             list($ct, $this->original_letter) = $this->splitHeadAndBody($mime_sections['returned_message_body_part']);
         } elseif (strpos($body, '------ This is a copy of your message, including all the headers. ------') !== false) {
-            list($_, $this->original_letter) = preg_split("/\r\n\r\n------ This is a copy of your message, including all the headers. ------\r\n\r\n/", $body, 2);
+            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of your message, including all the headers. ------\s{4}/", $body, 2);
         } elseif (strpos($body, '------ This is a copy of the message, including all the headers. ------') !== false) {
-            list($_, $this->original_letter) = preg_split("/\r\n\r\n------ This is a copy of the message, including all the headers. ------\r\n\r\n/", $body, 2);
+            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of the message, including all the headers. ------\s{4}/", $body, 2);
         } else {
             $letters = preg_split("/\nReturn-path:[^\n]*\n/i", $bounce, 3, PREG_SPLIT_NO_EMPTY);
             if (!empty($letters[2])) {
@@ -280,37 +280,37 @@ class BounceHandler {
         $this->output[0]['messageid'] = empty($this->original_letter_header['Message-id']) ? '' : $this->original_letter_header['Message-id'];
         $this->output[0]['subject'] = empty($this->original_letter_header['Subject']) ? '' : $this->original_letter_header['Subject'];
 
-	    // добавим Diagnostic-Code (только первый)
-	    $dCode = null;
-	    foreach ($this->body_hash as $line) {
-		    if (preg_match('~^Diagnostic\-Code:(.*)$~isuD', $line, $m)) {
-			    if (preg_match('~([0-9][0-9][0-9])(.*)$~isuD', $m[1], $m)) {
-				    $dCode = [
-					    'code' => (int) $m[1],
-					    'text' => trim($m[2]),
-				    ];
-				    break;
-			    }
-		    }
-	    }
+        // добавим Diagnostic-Code (только первый)
+        $dCode = null;
+        foreach ($this->body_hash as $line) {
+            if (preg_match('~^Diagnostic\-Code:(.*)$~isuD', $line, $m)) {
+                if (preg_match('~([0-9][0-9][0-9])(.*)$~isuD', $m[1], $m)) {
+                    $dCode = [
+                        'code' => (int) $m[1],
+                        'text' => trim($m[2]),
+                    ];
+                    break;
+                }
+            }
+        }
 
-	    // remove empty array indices
-	    $tmp = array();
-	    foreach ($this->output as $arr) {
-		    if (empty($arr['recipient']) && empty($arr['status']) && empty($arr['action'])) continue;
-		    if (!empty($dCode)) $arr['dcode'] = $dCode;
-		    $tmp[] = $arr;
-	    }
-	    $this->output = $tmp;
+        // remove empty array indices
+        $tmp = array();
+        foreach ($this->output as $arr) {
+            if (empty($arr['recipient']) && empty($arr['status']) && empty($arr['action'])) continue;
+            if (!empty($dCode)) $arr['dcode'] = $dCode;
+            $tmp[] = $arr;
+        }
+        $this->output = $tmp;
 
         // accessors
         /*if it is an FBL, you could use the class variables to access the
-		data (Unlike Multipart-reports, FBL's report only one bounce)
-		*/
+        data (Unlike Multipart-reports, FBL's report only one bounce)
+        */
         $this->type = $this->find_type();
         $this->action = isset($this->output[0]['action']) ? $this->output[0]['action'] : '';
         $this->status = isset($this->output[0]['status']) ? $this->output[0]['status'] : '';
-        $this->subject = ($this->subject) ? $this->subject : $this->head_hash['Subject'];
+        $this->subject = ($this->subject) ?: $this->head_hash['Subject'];
         $this->recipient = isset($this->output[0]['recipient']) ? $this->output[0]['recipient'] : '';
         $this->feedback_type = (isset($this->fbl_hash['Feedback-type'])) ? $this->fbl_hash['Feedback-type'] : "";
 
@@ -324,7 +324,7 @@ class BounceHandler {
     }
 
     private function splitHeadAndBody($letter) {
-        return strpos($letter, "\r\n\r\n") !== false ? preg_split("/\r\n\r\n/", $letter, 2) : [$letter, ''];
+        return preg_match("/\s{4}/", $letter) !== false ? preg_split("/\s{4}/", $letter, 2) : [$letter, ''];
     }
 
     function init_bouncehandler($blob) {
@@ -367,13 +367,13 @@ class BounceHandler {
 
             /******** recurse into the email if you find the recipient ********/
             /*
-						if (stristr($line, $recipient) !== false) {
-							// the status code MIGHT be in the next few lines after the recipient line,
-							// depending on the message from the foreign host... What a laugh riot!
-							$status_code = $this->get_status_code_from_text($recipient, $i + 1);
-							if ($status_code) return $status_code;
-						}
-			*/
+                        if (stristr($line, $recipient) !== false) {
+                            // the status code MIGHT be in the next few lines after the recipient line,
+                            // depending on the message from the foreign host... What a laugh riot!
+                            $status_code = $this->get_status_code_from_text($recipient, $i + 1);
+                            if ($status_code) return $status_code;
+                        }
+            */
             /******** exit conditions ********/
             // if it's the end of the human readable part in this stupid bounce
             if (stristr($line, '------ This is a copy of the message') !== false) break;
@@ -413,8 +413,8 @@ class BounceHandler {
 
     function is_RFC1892_multipart_report() {
         return @$this->head_hash['Content-type']['type'] == 'multipart/report'
-        && @$this->head_hash['Content-type']['report-type'] == 'delivery-status'
-        && @$this->head_hash['Content-type']['boundary'] !== '';
+            && @$this->head_hash['Content-type']['report-type'] == 'delivery-status'
+            && @$this->head_hash['Content-type']['boundary'] !== '';
     }
 
     function parse_head($headers) {
@@ -678,9 +678,9 @@ class BounceHandler {
 
     function is_a_bounce() {
         foreach ($this->bouncesubj as $s) {
-            if (preg_match("/^$s/ui", $this->head_hash['Subject'])) return true;
+            if (array_key_exists('Subject', $this->head_hash) && preg_match("/^$s/ui", $this->head_hash['Subject'])) return true;
         }
-        if (isset($this->head_hash['From']) && preg_match("/^(postmaster|mailer-daemon)\@?/i", $this->head_hash['From'])) return true;
+        if (array_key_exists('From', $this->head_hash) && preg_match("/^(postmaster|mailer-daemon)\@?/i", $this->head_hash['From'])) return true;
         return false;
     }
 
@@ -764,9 +764,9 @@ class BounceHandler {
     }
 
     /*
-	 * The syntax of the final-recipient field is as follows:
-	 * "Final-Recipient" ":" address-type ";" generic-address
-	 */
+     * The syntax of the final-recipient field is as follows:
+     * "Final-Recipient" ":" address-type ";" generic-address
+     */
     private function format_final_recipient_array($arr) {
         $output = array('addr' => '', 'type' => '');
         if (count($arr) > 1) {
