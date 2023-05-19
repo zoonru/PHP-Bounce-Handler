@@ -308,11 +308,11 @@ class BounceHandler {
         data (Unlike Multipart-reports, FBL's report only one bounce)
         */
         $this->type = $this->find_type();
-        $this->action = isset($this->output[0]['action']) ? $this->output[0]['action'] : '';
-        $this->status = isset($this->output[0]['status']) ? $this->output[0]['status'] : '';
-        $this->subject = ($this->subject) ?: $this->head_hash['Subject'];
-        $this->recipient = isset($this->output[0]['recipient']) ? $this->output[0]['recipient'] : '';
-        $this->feedback_type = (isset($this->fbl_hash['Feedback-type'])) ? $this->fbl_hash['Feedback-type'] : "";
+        $this->action = $this->output[0]['action'] ?? '';
+        $this->status = $this->output[0]['status'] ?? '';
+		$this->subject = $this->subject ?? $this->head_hash['Subject'] ?? '';
+        $this->recipient = $this->output[0]['recipient'] ?? '';
+        $this->feedback_type = $this->fbl_hash['Feedback-type'] ?? "";
 
         // sniff out any web beacons
         if ($this->web_beacon_preg_1) $this->web_beacon_1 = $this->find_web_beacon($body, $this->web_beacon_preg_1);
