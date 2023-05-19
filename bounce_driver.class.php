@@ -113,9 +113,9 @@ class BounceHandler {
         if (!empty($mime_sections['returned_message_body_part'])) {
             list($ct, $this->original_letter) = $this->splitHeadAndBody($mime_sections['returned_message_body_part']);
         } elseif (strpos($body, '------ This is a copy of your message, including all the headers. ------') !== false) {
-            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of your message, including all the headers. ------\s{4}/", $body, 2);
+            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of your message, including all the headers. ------[\s\S]*?\s{4}/", $body, 2);
         } elseif (strpos($body, '------ This is a copy of the message, including all the headers. ------') !== false) {
-            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of the message, including all the headers. ------\s{4}/", $body, 2);
+            list($_, $this->original_letter) = preg_split("/\s{4}------ This is a copy of the message, including all the headers. ------[\s\S]*?\s{4}/", $body, 2);
         } else {
             $letters = preg_split("/\nReturn-path:[^\n]*\n/i", $bounce, 3, PREG_SPLIT_NO_EMPTY);
             if (!empty($letters[2])) {
