@@ -1,5 +1,5 @@
 {
-	"name":"zoonru/php-bounce-handler",
+	"name":"zoon/php-bounce-handler",
 	"autoload": { "classmap": ["bounce_driver.class.php"] },
 	"require": {
 		"php": ">=7.0"
