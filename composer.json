@@ -1,6 +1,8 @@
 {
 	"name":"zoon/php-bounce-handler",
+	"description": "This class can be used to parse bounced message reports.",
 	"autoload": { "classmap": ["bounce_driver.class.php"] },
+	"license": "MIT",
 	"require": {
 		"php": ">=7.0"
 	}
