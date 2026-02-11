@@ -1,6 +1,5 @@
 {
 	"name": "zoonru/php-bounce-handler",
-	"version": "8.0.0",
 	"require": {
 		"php": ">=8.4"
 	},
