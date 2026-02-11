@@ -40,16 +40,16 @@ final class HeaderParser {
 				continue;
 			}
 
-			if (preg_match('/^([^\s.]*):\s*(.*)\s*/', $line, $array) === 1) {
-				$entity = ucfirst(strtolower($array[1]));
-				$value = $array[2];
+				if (preg_match('/^([^\s.]*):\s*(.*)\s*/', $line, $array) === 1) {
+					$entity = ucfirst(strtolower($array[1]));
+					$value = $array[2];
 
-				if (strpos($value, '=?') !== false) {
-					$decoded = iconv_mime_decode($value, ICONV_MIME_DECODE_CONTINUE_ON_ERROR, 'UTF-8');
-					if ($decoded !== false) {
-						$value = $decoded;
+					if (strpos($value, '=?') !== false) {
+						$decoded = self::decodeMimeHeaderValue($value);
+						if ($decoded !== false) {
+							$value = $decoded;
+						}
 					}
-				}
 
 				if (!array_key_exists($entity, $hash) || $hash[$entity] === '') {
 					$hash[$entity] = trim($value);
@@ -58,15 +58,15 @@ final class HeaderParser {
 						$hash[$entity] .= '|' . trim($value);
 					}
 				}
-			} else {
-				if (preg_match('/^\s+(.+)\s*/', $line, $array) === 1 && $entity !== null) {
-					$continuation = $array[1];
-					if (strpos($continuation, '=?') !== false) {
-						$decoded = iconv_mime_decode($continuation, ICONV_MIME_DECODE_CONTINUE_ON_ERROR, 'UTF-8');
-						if ($decoded !== false) {
-							$continuation = $decoded;
+				} else {
+					if (preg_match('/^\s+(.+)\s*/', $line, $array) === 1 && $entity !== null) {
+						$continuation = $array[1];
+						if (strpos($continuation, '=?') !== false) {
+							$decoded = self::decodeMimeHeaderValue($continuation);
+							if ($decoded !== false) {
+								$continuation = $decoded;
+							}
 						}
-					}
 
 					if (array_key_exists($entity, $hash) && is_string($hash[$entity])) {
 						$hash[$entity] .= ' ' . $continuation;
@@ -99,5 +99,14 @@ final class HeaderParser {
 		}
 
 		return $result;
+	}
+
+	private static function decodeMimeHeaderValue(string $value): string|false {
+		set_error_handler(static fn (): bool => true);
+		try {
+			return iconv_mime_decode($value, ICONV_MIME_DECODE_CONTINUE_ON_ERROR, 'UTF-8');
+		} finally {
+			restore_error_handler();
+		}
 	}
 }
