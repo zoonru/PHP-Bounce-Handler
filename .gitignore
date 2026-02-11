@@ -1,0 +1,16 @@
+# Dependencies
+/vendor/
+
+# Test and analysis caches
+/.phpunit.result.cache
+/.php-cs-fixer.cache
+/.psalm/
+/.phpcs-cache
+
+# IDE/editor
+/.idea/
+/.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

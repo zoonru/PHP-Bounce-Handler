@@ -1,0 +1,643 @@
+Delivered-To: postmaster1@example.test
+Received-SPF: pass (example.test: domain of example.test designates 192.0.2.100 as permitted sender) client-ip=192.0.2.100; envelope-from=noreply@example.test; helo=example.test;
+Authentication-Results: example.test;
+	dkim=pass;
+	spf=pass (example.test: domain of example.test designates 192.0.2.100 as permitted sender)  example.test=noreply@example.test;
+	dmarc=pass(p=reject dis=none)  example.test=example.test
+ARC-Seal: i=1; a=rsa-sha256; t=1770819640; cv=none; 
+	d=example.test; s=zohoarc; 
+	b=gyiDbaVzFanrxncGLHJcRWnIF04tHwtEDhL5PHcnHXRsND4lvD3Yr+0gY9HKeAoC93K328a5U2M0ElyKexiD/e7KfXiVwD8SBuiHzKwKLpEkBQKHduBCDsPv6Sl0HWO0d2d/HAMDe7zYNJkC8K6fVOTILhjMOFj75J6UFKKnDBM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=zohoarc; 
+	t=1770819640; h=Content-Type:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=KYfeJJMkAlSdqDhbWKI0OcU1R6rKt01tHfIazNsf24U=; 
+	b=O3YuLK0tWfFIB04TgwIYp+jK2m7uv8ALKFN09MZJzJlBO2S8Dyo1ykTMJFv7oIJ/W256EX+hpYzlKHhNi6lmMWWCNfR30Wqw5Mk/Fxiw9gj7nHDL9qgN/QUZax/AWE6vS/hreb2u5yClgOj7A7njkJIgsxNQ7sXrOP+F+mcvcJs=
+ARC-Authentication-Results: i=1; example.test;
+	dkim=pass;
+	spf=pass (example.test: domain of example.test designates 192.0.2.100 as permitted sender)  example.test=noreply@example.test;
+	dmarc=pass example.test=<noreply@example.test> (p=reject dis=none)
+Return-Path: <noreply@example.test>
+Received: from example.test (example.test [192.0.2.100]) by example.test
+	with SMTPS id 177081964058479.02764416759726; Wed, 11 Feb 2026 06:20:40 -0800 (PST)
+Received: from [192.0.2.100] (ident=root)
+	by example.test with local (envelope-from <noreply@example.test>)
+	id 1vqB54-0006Wj-9k
+	for postmaster1@example.test; Wed, 11 Feb 2026 17:20:38 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test; s=mail4;
+	h=Content-Type:MIME-Version:Date:Subject:To:From:Message-ID:From:Subject:Content-Type:Content-Transfer-Encoding:To:Cc; bh=KYfeJJMkAlSdqDhbWKI0OcU1R6rKt01tHfIazNsf24U=;
+	t=1770819640;x=1770909640; 
+	b=MdeYHLqzFYZP/A06mzHoL2OwTJap98oTYWkT9uNmpJbKpZ7GGRLFE9RuIb5c5IpasKUp9IMfFyF2gfWQX+GQcE7+zrMAnL++ah+6etkogbUHXZKPjvOlfjnFw6Fyav1nA3eoYlPb9FOvERFrSWZsoXRoyTAxie9h+cvMT+0QOCHDRdUTL+dQAjkNkJ4lnTVjxM4uOO3FbpLK8oC504IEoUwPKp+rGJZ7F0BCKlgxpApYpU90BJGiBWecoo4fl03FywLbsVN0DC8VefCfOaaT1dIwiCiikX/dhoZeipiZJuJVWEu6GgKDKvTPxIeHDt+R2XtCdTKWkdMWMucqRiHeRg==;
+Message-ID: <1770819638.622915835@spam-abuser-54c8b754b4-skp47>
+From: noreply@example.test
+To: postmaster1@example.test
+Subject: example.test abuse report (Feedback Loop)
+Date: Wed, 11 Feb 2026 17:20:38 +0300
+X-Mru-AbusefHost: spam-abuser-54c8b754b4-skp47
+MIME-Version: 1.0
+Content-Type: multipart/report; boundary="-----TUqNc2jDFqWlWOhq-1770819638"; report-type="feedback-report"
+X-ZohoMail-DKIM: pass (identity @example.test)
+
+
+-------TUqNc2jDFqWlWOhq-1770819638
+MIME-Version: 1.0
+Content-Type: text/plain
+
+This is an email abuse report for an email message received from domain example.test.
+For more information about this report please visit http://example.test.
+-------TUqNc2jDFqWlWOhq-1770819638
+MIME-Version: 1.0
+Content-Type: message/feedback-report
+
+feedback-type: abuse
+User-Agent: Email::ARF::Report/0.006
+Version: 0.1
+
+-------TUqNc2jDFqWlWOhq-1770819638
+MIME-Version: 1.0
+Content-Type: message/rfc822
+
+Delivered-To: *****
+Return-path: <postmaster@example.test>
+Received-SPF: pass (exim-mx-79b98d666-5sxr2: domain of example.test designates 192.0.2.100 as permitted sender) client-ip=192.0.2.100; envelope-from=postmaster@example.test; helo=example.test;
+Received: from example.test ([192.0.2.100]:33636)
+	by exim-mx-79b98d666-5sxr2 with esmtp (envelope-from <postmaster@example.test>)
+	id 1vq9iQ-00000000BZM-3OLE
+	for recipient.fbl1@example.test; Wed, 11 Feb 2026 15:53:11 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test;
+	s=z01; h=Content-Transfer-Encoding:Content-Type:Date:MIME-Version:To:Subject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=bmApRK+8TWk/taoKLVcN/29CK3gqYphKfeSXbrJjs1E=; b=IXTAtPMajiyAEiMFP0cScjLxqF
+	dXY4dLLwbxPnjsHbbTumeK4kPTuv9u5Pr43Rvc1Y1Vu4JOtfAcwS1Bgwg7ekW9bg1qfTzhrZb47EJ
+	k7pngnCkALGc9MbRMN/vf6K9gmV/+qVhhAZGBnTKeEb6CJhToMxdiY/UybBTizDzSGrg=;
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+Message-ID: <698c7bb6d3519cd50d06a80b-4edfbdb79f722216118f2f94ac751aba@example.test>
+List-Unsubscribe: <https://example.test/r/698c7bb6d3519cd50d06a80c/2c769429a608edf25a6a0597cf4d9617/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Postmaster-Msgtype: monthly_report_CorpArticle
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A_=E2=84=961?=
+To: recipient.fbl1@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 15:53:10 +0300
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Mailru-Src: mx
+X-6b629377: 1
+X-7564579A: B8F34718100C35BD
+X-77F55803: E822A06ED42C499A5D890D6ED4354652259D82677AF8083B543373715A27A4F90BBDAAE39103F3638701F0628C4B95CBCD44BFA84066760D300925C281B7667DD4B5948F87EFFD9839AD1C2B5F7BFE48ADAB024B4846C063
+X-7FA49CB5: A9FCD207E66530D8A18204E546F3947C22AFBD43305DE81BA00BF8846474D080C8A9BA7A39EFB7662668BECDD4E80C2709758206774B3CD2D5E8D9A59859A8B60EBDFAA90E3A934D71492C2D3FF63AF69449624AB7ADAF37EB0A3557CC2464CF277E793F4B08E884C33910196EAF07A4AFB8EE5BB20AF148BD9CCCA9EDD067B18F958DDE0D1B62104E1E7243831EC1F578DA827A17800CE75CEAFB329192ECAE6320D30F47244B792668BECDD4E80C2782BFA309970D60C2B287FD4696A6DC2F5F5C1EE8F4F765FC5FC25ED3FCEC3375BFD28B28ED4578732EF20D2F80756B5F40A5AABA2AD37119BCF491FFA38154B6D5E8D9A59859A8B607F65E8ECED21B4ABCF491FFA38154B6B5C8C57E37DE458B543C44CD4AFD0029B289B51CCB092ABD8AA50765F79006376A27C8034CCD05E5B3661434B16C20AC508DBCF57D5253891B59CA4C82EFA658690DDE063D6FBF3A8D1BBA29F9A7A3F756BA225E50BA5DD66F9789CCF6C18C3F8528715B7D10C86859CC434672EE6371117882F4460429724CE54428C33FAD305F5C1EE8F4F765FCAA867293B0326636D2E47CDBA5A96583BD4B6F7A4D31EC0BC014FD901B82EE079FA2833FD35BB23D27C277FBC8AE2E8BAA867293B0326636D2E47CDBA5A96583BA9C0B312567BB23BDAD6C7F3747799A
+X-C1DE0DAB: 0D63561A33F958A5D12CE784CCBF62A65002B1117B3ED696E47E9E6A2C934D1CE772F934B9BCD185277AA237ED671D4372AF3B35EA4094CC989FD0BDF65E50FB9C5DF10A05D560A97C2FCC2414B0771EAE9AA65D09B166D83FA16D0D0D7F8BFFC79554A2A72441324ECABB3E3C951CC822D2CEDE4E95CF1B1E618B5D5F965AFDA359038F01FFAF82B2D1C9E48B6DC60AE2A7E19323554B122E763F503762DF500CD941B9A4F8C6874EAF44D9B582CE87C8A4C02DF684249C2E763F503762DF5084F8764BE7376948F6228F3B180FA51DD0283EA430FA964BEEBF092486A2C6B2559C6C5561145D6F17C1E67C4FCC32AC4AC6F0C3BBD4C0F458C12E6D310A6D53434D111E5A0D8309
+X-C8649E89: 1C3962B70DF3F0AD73CAD6646DEDE19107FEB66892259D58A0CBE312C330D7D583CD26C36C883521FC0B9F89525902EE6F57B2FD27647F25E66C117BDB76D6592526F7BD75CEB20EA9BFBDE4DCBB549F5EC6DAB284FF5C512326F240F7931379F800B4273DFEB84FB8341EE9D5BE9A0A787EA3108F5903CDF72CB3CBB18ECC56DF946A520F61847E52EE4E5D9E54FDA44C41F94D744909CE22316FEE5BB4DDADC5D4351CFEA799CF83DB18EBE73F7D69
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+OURs3E5O9HgLbe1f6qYhvLutKFiSd6Yd7yPpbiiZ/d5BBLFdbzIJ3dJHSwHbuu7kIPM9iHDMiJGXxwYFMoo0SxuNtaMxMZ+gRifRcdPfmYJJXI1J6BFciTk=
+X-F696D7D5: janATDn46WrDT2ZtZ+htu7gSNI4DrevvECEye0ZD0xBcjUnoEVyJOQ==
+X-Mailru-Dmarc-Auth: dmarc=pass example.test=info@example.test
+X-Mras: Ok
+X-Spam: undefined
+Authentication-Results: example.test; spf=pass (exim-mx-79b98d666-5sxr2: domain of example.test designates 192.0.2.100 as permitted sender) example.test=postmaster@example.test example.test=example.test;
+	 dkim=pass header.d=example.test; dmarc=pass example.test=info@example.test
+X-Mailru-Intl-Transport: d,7720e58
+
+<html>
+<head>
+<title></title>
+<meta http-equiv=3D"content-type" conte=
+nt=3D"text/html; charset=3Dutf-8">
+<style>
+@media only screen and (max-=
+device-width: 600px) {
+.main{
+width: 100%;
+max-width: 560px;
+}
+.a=
+daptive_table{
+display: block;
+width: 100%;
+}
+.adaptive_table > tbo=
+dy{
+display: block;
+width: 100%;
+}
+.adaptive_table .adaptive_tr{
+=
+display: block;
+width: 100%;
+padding: 0 0 15px;
+}
+.adaptive_table .=
+adaptive_td{
+display: block;
+text-align: center;
+width: 100%;
+}
+.=
+adaptive_table .adaptive_td table{
+text-align: left;
+margin: 0 auto;
+=
+}
+.article_img img {
+max-width: 100%;
+max-height: 100%;
+height: aut=
+o;
+width: auto;
+}
+.preheader {
+display: none !important;
+}
+.pho=
+ne_font_m {
+font-size: 16px !important;
+}
+.phone_hidden {
+display: =
+none !important;
+}
+.phone_conf_speackers {
+display: block;
+float: l=
+eft;
+width: 50% !important;
+}
+}
+</style>
+</head>
+<body style=3D=
+"height: 100% !important; width: 100% !important; background-color: #ffffff=
+; margin: 0; padding: 0; font-family:Arial,Helvetica,sans-serif; font-weigh=
+t: normal; font-size: 15px;" bgcolor=3D"#ffffff" text=3D"#333333" topmargin=
+=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" link=3D"#6339f=
+5" alink=3D"#6339f5" vlink=3D"#6339f5" color=3D"#333333">
+<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%; height: 10=
+0%; background-color: #ffffff;border-collapse:collapse;">
+<tr>
+<td styl=
+e=3D"vertical-align: top; padding:0 20px; background-color: #ffffff;" align=
+=3D"center">
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" style=3D"border-collapse:collapse;min-width:375px;max-width:560p=
+x;" class=3D"main">
+<tr>
+<td align=3D"left">
+<table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width: 100%;border-=
+collapse:collapse;">
+<!-- header -->
+<tr>
+<td height=3D"10"><div styl=
+e=3D"line-height:0;"><div class=3D"preheader" style=3D"font-size:1px;color:=
+#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hid=
+den">=D0=A1=D1=83=D0=BC=D0=BC=D0=B0=D1=80=D0=BD=D0=B0=D1=8F =D1=81=D1=82=
+=D0=B0=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B0 =D0=B8 =D0=BD=D0=B5=D1=
+=81=D0=BA=D0=BE=D0=BB=D1=8C=D0=BA=D0=BE =D1=80=D0=B5=D0=BA=D0=BE=D0=BC=
+=D0=B5=D0=BD=D0=B4=D0=B0=D1=86=D0=B8=D0=B9, =D0=BA=D0=B0=D0=BA =D0=B5=D1=
+=91 =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C.</div></div></td>
+</=
+tr>
+<!-- end header -->
+<!-- body -->
+<!-- end body -->
+<!-- newbod=
+y -->
+<tr>
+<td>
+<table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;" id=3D"rnd1770814390=
+09">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" style=3D"width:100%;border-collapse:collapse;" class=3D"ad=
+aptive_table">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<t=
+d style=3D"padding:10px 0">
+<table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;" dir=3D"rtl" c=
+lass=3D"adaptive_table">
+<tr class=3D"adaptive_tr">
+<td valign=3D"top" =
+class=3D"adaptive_td article_img" dir=3D"ltr">
+<table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:colla=
+pse;" class=3D"adaptive_table">
+<tr>
+<td>
+<span style=3D"color:#33333=
+3;font-size:24px;line-height:32px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=9E=D1=82=D1=87=D0=B5=D1=82 =D0=B7=D0=B0=C2=A0=D1=8F=D0=BD=D0=B2=
+=D0=B0=D1=80=D1=8C =D0=BF=D0=BE=C2=A0=D1=81=D1=82=D0=B0=D1=82=D0=B8=D1=
+=81=D1=82=D0=B8=D0=BA=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=89=D0=B5=D0=BD=
+=D0=B8=D0=B9 =D0=B1=D0=B0=D0=BD=D0=B8 =E2=84=96=C2=A01
+</span>
+</td>
+=
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</=
+td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<td s=
+tyle=3D"padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<td st=
+yle=3D"padding:5px 0 0;background:#6339f5;background:-moz-linear-gradient(l=
+eft, #6339f5 0%, #f84177 100%);background:-webkit-linear-gradient(left, #63=
+39f5 0%,#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#f8417=
+7 100%);line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</tr>=
+
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;"=
+>
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;fo=
+nt-size:20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">
+=
+=E2=84=96=C2=A01=C2=A0=D0=BD=D0=B0=C2=A0=D0=9F=D0=B0=D1=80=D0=BA=D0=BE=
+=D0=B2=D0=BE=D0=B9 =D1=83=D0=BB=D0=B8=D1=86=D0=B5
+</span>
+</td>
+</tr>=
+
+</table>
+</td>
+</tr>
+<tr><td>
+<table cellpadding=3D"0" cellspaci=
+ng=3D"0" width=3D"100%" style=3D"width:100%; max-width:320px;border-collaps=
+e:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr>
+<td>
+<div st=
+yle=3D"border: 1px solid #e0e2e8;border-radius: 6px;">
+<table cellpadding=
+=3D"16" cellspacing=3D"0" width=3D"100%" style=3D"width:100%;border-collaps=
+e:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr valign=3D"top">=
+
+<td width=3D"100%">
+<span style=3D"font-size:16px;line-height:28px;col=
+or:#2c2d36;">=D0=9F=D0=BE=D0=B7=D0=B8=D1=86=D0=B8=D0=B8</span>
+<br>
+<sp=
+an style=3D"font-size:13px;line-height:20px;color:#2c2d36;">=D0=92 =D0=
+=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE =D0=B7=D0=B0=D0=BF=D1=80=
+=D0=BE=D1=81=D1=83: =C2=AB=D0=9E=D0=B1=D1=89=D0=B5=D1=81=D1=82=D0=B2=D0=
+=B5=D0=BD=D0=BD=D1=8B=D0=B5 =D0=B1=D0=B0=D0=BD=D0=B8 =D0=B2=C2=A0=D0=9A=
+=D0=B0=D0=BB=D0=B8=D0=BD=D0=B8=D0=BD=D0=B3=D1=80=D0=B0=D0=B4=D0=B5=C2=BB</s=
+pan>
+</td>
+<td align=3D"right" nowrap><span style=3D"font-size:16px;lin=
+e-height:24px;color:#40cb3f;white-space:nowrap;">+=E2=80=894</span></td>
+=
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td height=3D"12" style=
+=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+</t=
+able>
+<div style=3D"position: relative;border: 1px solid #e0e2e8;border-r=
+adius: 6px; max-width: 320px;">
+<table cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" style=3D"width:100%;border-collapse:collapse;" border=3D"0=
+" class=3D"adaptive_table">
+<tr>
+<td height=3D"16" colspan=3D"5" style=
+=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<tr=
+>
+<td width=3D"16"></td>
+<td width=3D"266">
+<span style=3D"font-size:=
+16px;line-height:24px;color:#2c2d36;">=D0=9F=D0=BE=D0=BA=D0=B0=D0=B7=D1=
+=8B</span>
+</td>
+<td width=3D"13"></td>
+<td align=3D"right">
+<span =
+style=3D"font-size:16px;line-height:24px;color:#2c2d36;white-space:nowrap;"=
+>85</span>
+</td>
+<td width=3D"16"></td>
+</tr>
+<tr>
+<td height=3D"=
+16" align=3D"center" colspan=3D"2" style=3D"line-height:0;"><div style=3D"l=
+ine-height:0;"></div></td>
+<td height=3D"16" align=3D"center" style=3D"li=
+ne-height:0;">
+<div style=3D"line-height:0; display: inline-block; width:=
+ 13px; height:16px; background: url('https://example.test/images/arrow-down-gray=
+.png') #fff top center no-repeat;"></div>
+</td>
+<td height=3D"16" align=
+=3D"center" colspan=3D"2" style=3D"line-height:0;"><div style=3D"line-heigh=
+t:0;"></div></td>
+</tr>
+<tr>
+<td height=3D"16" align=3D"center" colsp=
+an=3D"2" style=3D"line-height:0;border-top: 1px solid #e0e2e8;"><div style=
+=3D"line-height:0;"></div></td>
+<td height=3D"16" align=3D"center" style=
+=3D"line-height:0;">
+<div style=3D"line-height:0; display: inline-block; =
+width: 13px; height:16px; background: url('https://example.test/images/arrow-dow=
+example.test') #fff bottom center no-repeat;"></div>
+</td>
+<td height=3D"=
+16" align=3D"center" colspan=3D"2" style=3D"line-height:0;border-top: 1px s=
+olid #e0e2e8;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<tr>
+<=
+td width=3D"16"></td>
+<td width=3D"">
+<span style=3D"font-size:16px;lin=
+e-height:24px;color:#2c2d36;">=D0=A3=D0=BD=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=
+=D0=BD=D1=8B=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=89=D0=B5=D0=BD=D0=B8=D1=
+=8F</span>
+</td>
+<td width=3D"13"></td>
+<td align=3D"right">
+<span =
+style=3D"font-size:16px;line-height:24px;color:#2c2d36;white-space:nowrap;"=
+>1</span>
+</td>
+<td width=3D"16"></td>
+</tr>
+<tr>
+<td height=3D"1=
+6" colspan=3D"5" style=3D"line-height:0;"><div style=3D"line-height:0;"></d=
+iv></td>
+</tr>
+</table>
+</div>
+<br>
+</td></tr>
+<tr>
+<td>
+<t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;"=
+>
+<a href=3D"https://example.test/r/698c7bb6d3519cd50d06a80d/1eb36f11b829c=
+51c8ce5e0280cb8f5c9/" style=3D"background-color:#6339f5;border:1px solid #6=
+339f5;border-radius:4px;color:#ffffff;display:block;display:inline-block;fo=
+nt-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:normal;text=
+-align:center;text-decoration:none;line-height:24px;padding:8px 25px;-webki=
+t-text-size-adjust:none;" target=3D"_blank">
+=C2=A0=C2=A0=D0=9F=D0=BE=
+=D0=B4=D1=80=D0=BE=D0=B1=D0=BD=D0=B5=D0=B5 =E2=80=94 =D0=B2 =D0=BB=D0=B8=
+=D1=87=D0=BD=D0=BE=D0=BC =D0=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82=D0=
+=B5=C2=A0=C2=A0
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td=
+><br></td></tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<=
+td style=3D"padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<t=
+d style=3D"padding:5px 0 0;background:#6339f5;background:-moz-linear-gradie=
+nt(left, #6339f5 0%, #f84177 100%);background:-webkit-linear-gradient(left,=
+ #6339f5 0%,#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#f=
+84177 100%);line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</t=
+r>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse=
+;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;=
+font-size:20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=9A=D0=B0=D0=BA =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C =
+=D0=BF=D0=BE=D0=BA=D0=B0=D0=B7=D0=B0=D1=82=D0=B5=D0=BB=D0=B8 =D1=83=C2=
+=A0=D0=B1=D0=B0=D0=BD=D0=B8 =E2=84=96=C2=A01:
+</span>
+</td>
+</tr>
+<=
+/table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+=
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-s=
+ize:16px;line-height:23px;font-family:Arial,Helvetica,sans-serif;">
+=
+=D0=9E=D1=82=D0=B2=D0=B5=D1=82=D1=8C=D1=82=D0=B5 =D0=BD=D0=B0=C2=A0=D0=
+=BE=D1=82=D0=B7=D1=8B=D0=B2=D1=8B =D0=BA=D0=BB=D0=B8=D0=B5=D0=BD=D1=82=
+=D0=BE=D0=B2 <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=
+=3D"=C2=BB100%=C2=BB" style=3D"=C2=BBborder-collapse:collapse;=C2=BB">
+<t=
+r>
+<td valign=3D"top" class=3D"article_img" style=3D"padding:10px 0;">
+=
+<p style=3D"line-height:0;margin:0;">
+<img src=3D"https://example.test/nXj=
+blXXPpg8NqRMC0uzClg/4/9/5c923b03c4f77e0302667d75_5ca1d8883ad96.png" style=
+=3D"border-radius: 4px;max-width:560px;width: 100%;">
+</p>
+</td>
+</tr=
+>
+</table>
+</span>
+</td>
+</tr>
+</table>
+<table border=3D"0" cel=
+lpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:co=
+llapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;">
+<a href=3D"https:/=
+/example.test/r/698c7bb6d3519cd50d06a80e/2706f558a503a586c610ba941fb700e9/" =
+style=3D"background-color:#6339f5;border:1px solid #6339f5;border-radius:4p=
+x;color:#ffffff;display:block;display:inline-block;font-family:Arial,Helvet=
+ica,sans-serif;font-size:20px;font-weight:normal;text-align:center;text-dec=
+oration:none;line-height:24px;padding:8px 25px;-webkit-text-size-adjust:non=
+e;" target=3D"_blank">
+=D0=9E=D1=82=D0=B2=D0=B5=D1=82=D0=B8=D1=82=D1=
+=8C
+</a>
+</td>
+</tr>
+</table>
+<table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+=
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-s=
+ize:16px;line-height:23px;font-family:Arial,Helvetica,sans-serif;">
+=
+=D0=9F=D0=BE=D0=BC=D0=B8=D0=BC=D0=BE =D1=8D=D1=82=D0=BE=D0=B3=D0=BE, =D0=
+=BF=D0=BE=D0=B4=D0=BD=D1=8F=D1=82=D1=8C=D1=81=D1=8F =D0=B2=D1=8B=D1=88=
+=D0=B5 =D0=B2=C2=A0=D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE=D0=
+=BC=D0=BE=D0=B3=D1=83=D1=82:<br>
+=E2=80=94 <a href=3D"https://example.test=
+/r/698c7bb6d3519cd50d06a80f/dc2fe69160f2e2f5df2f672f0e8dca64/" target=3D"_b=
+lank" style=3D"color:#6339f5;text-decoration:none">=D0=9A=D1=80=D0=B0=D1=
+=81=D0=B8=D0=B2=D1=8B=D0=B5 =D1=84=D0=BE=D1=82=D0=BE=D0=B3=D1=80=D0=B0=
+=D1=84=D0=B8=D0=B8 =D0=B2=D0=B0=D1=88=D0=B5=D0=B9 =D0=BE=D1=80=D0=B3=D0=
+=B0=D0=BD=D0=B8=D0=B7=D0=B0=D1=86=D0=B8=D0=B8</a><br>
+=E2=80=94 <a href=
+=3D"https://example.test/r/698c7bb6d3519cd50d06a810/67b9c3a46090c28d13ad36f1=
+61102bf1/" target=3D"_blank" style=3D"color:#6339f5;text-decoration:none">=
+=D0=A3=D0=BD=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=D0=BD=D0=BE=D0=B5 =D0=BE=D0=
+=BF=D0=B8=D1=81=D0=B0=D0=BD=D0=B8=D0=B5 =D0=B2=D0=B0=D1=88=D0=B5=D0=B3=
+=D0=BE =D0=B7=D0=B0=D0=B2=D0=B5=D0=B4=D0=B5=D0=BD=D0=B8=D1=8F</a><br>
+</s=
+pan>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>=
+
+</table>
+</td>
+</tr>
+<!-- offset -->
+<tr>
+<td height=3D"30" st=
+yle=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+=
+<!-- offset -->
+<!-- end newbody -->
+<!-- footer -->
+<tr>
+<td>
+<t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-colla=
+pse:collapse;">
+<tr>
+<td style=3D"padding:20px 0;border-top:1px solid #=
+e2e2e6;">
+<span style=3D"color:#333333;font-size:16px;line-height:25px;fo=
+nt-family:Arial,Helvetica,sans-serif;text-decoration:none;">=D0=92=D1=8B =
+=D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B8=D0=BB=D0=B8 =D1=8D=D1=82=D0=BE =D0=
+=BF=D0=B8=D1=81=D1=8C=D0=BC=D0=BE, =D0=BF=D0=BE=D1=82=D0=BE=D0=BC=D1=83 =
+=D1=87=D1=82=D0=BE =D0=B8=D0=BC=D0=B5=D0=B5=D1=82=D0=B5 =D0=B4=D0=BE=D1=
+=81=D1=82=D1=83=D0=BF =D0=B2 <a href=3D"https://example.test/r/698c7bb6d3519=
+cd50d06a811/05526827c0718c78e9540c8434fabadc/" style=3D"color:#6339f5;text-=
+decoration:none;" target=3D"_blank">=D0=9B=D0=B8=D1=87=D0=BD=D1=8B=D0=B9 =
+=D0=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82</a>.=09<br><a href=3D"https://zo=
+example.test/r/698c7bb6d3519cd50d06a80c/2c769429a608edf25a6a0597cf4d9617/" sty=
+le=3D"color:#6339f5;text-decoration:none;" target=3D"_blank">=D0=9D=D0=
+=B5 =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D1=82=D1=8C =D0=B1=D0=BE=D0=BB=
+=D1=8C=D1=88=D0=B5 =D1=82=D0=B0=D0=BA=D0=B8=D1=85 =D0=BF=D0=B8=D1=81=D0=
+=B5=D0=BC</a>.</span>=09</td>
+</tr>
+<tr>
+<td>
+<span style=3D"color:=
+#bbbcc4;font-size:16px;line-height:25px;font-family:Arial,Helvetica,sans-se=
+rif;text-decoration:none;">=D0=A1 =D1=83=D0=B2=D0=B0=D0=B6=D0=B5=D0=BD=
+=D0=B8=D0=B5=D0=BC, =D0=BA=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0 example.test</spa=
+n>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"30" st=
+yle=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+=
+<!-- end footer -->
+<tr>
+<td><img src=3D"https://example.test/i/698c7bb6=
+d3519cd50d06a80b/example.test" style=3D"display:none" width=3D"1" height=3D"=
+1" border=3D"0"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>=
+
+</tr>
+</table>
+</body>
+</html>
+
+-------TUqNc2jDFqWlWOhq-1770819638--

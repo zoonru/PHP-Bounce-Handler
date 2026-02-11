@@ -1,0 +1,680 @@
+Delivered-To: postmaster@example.test
+Received-SPF: none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @) client-ip=192.0.2.100; envelope-from=@; helo=example.test;
+Authentication-Results: example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass(p=quarantine dis=none)  example.test=example.test
+ARC-Seal: i=1; a=rsa-sha256; t=1770806641; cv=none; 
+	d=example.test; s=zohoarc; 
+	b=Ee+qdrziN1xNTt7VeWDGvZDW2lCAfco/zHqwlvkz5PyBitpS/cbyPsjgj7NPJmyijWoCO7LwsPxKzkKNahyW50YDq03UZgWiUDkTGX7oP6Naox4DIJ4JHMBvB0xB7WOvMvevPUFwgKpAKcbAORjn810+oW7WiVSunZLzeu20Ccw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=zohoarc; 
+	t=1770806641; h=Content-Type:Content-Transfer-Encoding:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=OS/yd5B5iBaQtQfZ2+jXrCzwK5GWS5xj9BjYnHJZrcA=; 
+	b=gTeASpunGa5ev1zmHIw6eIKpsI32iPeNMwDTnXf05O0xpP2RhplRQBHDUhzFUl3FUspxN3i29IMdBbGQShZKbWZAG0ykr7xnbF1VxgCoau2TjuFgDVyst7WZvgxuL3Mm4wrXiWQjXqxtj0qM1tfmBmCSesfQwjW9QCFBkmD4GJg=
+ARC-Authentication-Results: i=1; example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass example.test=<MAILER-DAEMON@example.test> (p=quarantine dis=none)
+Return-Path: <>
+Received: from example.test (example.test [192.0.2.100]) by example.test
+	with SMTPS id 1770806640766869.3806120319008; Wed, 11 Feb 2026 02:44:00 -0800 (PST)
+Received: from example.test (localhost [192.0.2.100])
+	by example.test (Postfix) with ESMTP id F2963180003
+	for <postmaster@example.test>; Wed, 11 Feb 2026 13:43:56 +0300 (MSK)
+Received: from example.test (example.test [192.0.2.100])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits)
+	 client-signature RSA-PSS (4096 bits))
+	(Client CN "*.example.test", Issuer "GlobalSign GCC R6 AlphaSSL CA 2025" (verified OK))
+	by example.test (Postfix) with ESMTPS
+	for <postmaster@example.test>; Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+Received: by example.test (Postfix)
+	id 320553C1EA3; Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 example.test F2963180003
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=mail;
+	t=1770806636; bh=OS/yd5B5iBaQtQfZ2+jXrCzwK5GWS5xj9BjYnHJZrcA=;
+	h=Date:From:Subject:To:MIME-Version:Content-Type:Message-Id:From;
+	b=nsatxztkjxnxoURKYe/SqZQavrQOpRvIzeUvWkPWrA3LoJEQbEo4usOP0RzbVaM47
+	 ESH2Z1Dv3LYOy9IarNpAIRFXsjfUIxiK/ORk8oomG1pZFOUSl3/XdunMrrnB4wbJxS
+	 IRyozsaA7lHRrV6UdfBZ4iUPqbrzL1P1tVKFTwvO/UWM+B+Yq12BlXnEAB9CvQq7oG
+	 +e33QfcFqJPMEk2koM0UgGQlf9T2IlUs3c2BnRLKsgL9GAIsCxSBP3okpRCZ05hRXa
+	 fErefG7ffwnP4TkqWZ7B/qKJGEuPGrYz2iihSNi8Ls1V6R6CNcdIBVU10h8FmKCvg3
+	 UaT7nJivURvAg==
+Date: Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+From: Mail Delivery System <MAILER-DAEMON@example.test>
+Subject: Undelivered Mail Returned to Sender
+To: postmaster@example.test
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="2DB403C1E6B.1770806627/example.test"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20260211104347.320553C1EA3@example.test>
+X-ZohoMail-DKIM: pass (identity @example.test)
+X-ZohoMail-Owner: <20260211104347.320553C1EA3@example.test>+zmo_0_
+
+This is a MIME-encapsulated message.
+
+--2DB403C1E6B.1770806627/example.test
+Content-Description: Notification
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+This is the mail system at host example.test.
+
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
+
+For further assistance, please send mail to postmaster.
+
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<recipient.bounce6@example.test>: host example.test[private/dovecot-lmtp] said:
+    550 5.1.1 <recipient.bounce6@example.test> User doesn't exist: recipient.bounce6@example.test
+    (in reply to RCPT TO command)
+
+--2DB403C1E6B.1770806627/example.test
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; example.test
+X-Postfix-Queue-ID: 2DB403C1E6B
+X-Postfix-Sender: rfc822; postmaster@example.test
+Arrival-Date: Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+
+Final-Recipient: rfc822; recipient.bounce6@example.test
+Original-Recipient: rfc822;recipient.bounce6@example.test
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; example.test
+Diagnostic-Code: smtp; 550 5.1.1 <recipient.bounce6@example.test> User doesn't exist:
+    recipient.bounce6@example.test
+
+--2DB403C1E6B.1770806627/example.test
+Content-Description: Undelivered Message
+Content-Type: message/rfc822
+Content-Transfer-Encoding: 8bit
+
+Return-Path: <postmaster@example.test>
+Received: from example.test (example.test [192.0.2.100])
+	by example.test (Postfix) with ESMTP id 2DB403C1E6B
+	for <recipient.bounce6@example.test>; Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+Received: from example.test (localhost [192.0.2.100])
+	by example.test (Postfix) with ESMTP id 2B575180003
+	for <recipient.bounce6@example.test>; Wed, 11 Feb 2026 13:43:47 +0300 (MSK)
+Received: from example.test (example.test [192.0.2.100])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by example.test (Postfix) with ESMTPS
+	for <recipient.bounce6@example.test>; Wed, 11 Feb 2026 13:43:34 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test;
+	s=z01; h=Content-Transfer-Encoding:Content-Type:Date:MIME-Version:To:Subject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ei8DxbhwUIdhY9jGDNOhArrwcoOGrryVGcoyrnZNGwU=; b=V6/yl0jiqFGpRZ6wI+ZeU4X59A
+	dIBEz8AtBOxDsSjw0K+UTUHmqeIq3nJ5d+OJLiXBf2Z9PqnARrOstIZjf8LVAcFDlI837LPsTqg1Z
+	VJt9j2HJXTvnPs4DgDDfnqtUG6Khi1pMIRamM1+VNLqqbm2EH683okzy2K+3vJqu1x84=;
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+Message-ID: <698c5d5558ae485a3d0b02be-6d29f42ff31cb7b5f1d4af2a57d015c2@example.test>
+List-Unsubscribe: <https://example.test/r/698c5d5558ae485a3d0b02bf/50607bd7a11b197b303ddc95d9a64883/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A_=D0=A8=D0=B0=D1=82?=
+ =?utf-8?Q?=D0=BE?=
+To: recipient.bounce6@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 13:43:33 +0300
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<title></title>
+<meta http-equiv=3D"content-type" conte=
+nt=3D"text/html; charset=3Dutf-8">
+<style>
+@media only screen and (max-=
+device-width: 600px) {
+.main{
+width: 100%;
+max-width: 560px;
+}
+.a=
+daptive_table{
+display: block;
+width: 100%;
+}
+.adaptive_table > tbo=
+dy{
+display: block;
+width: 100%;
+}
+.adaptive_table .adaptive_tr{
+=
+display: block;
+width: 100%;
+padding: 0 0 15px;
+}
+.adaptive_table .=
+adaptive_td{
+display: block;
+text-align: center;
+width: 100%;
+}
+.=
+adaptive_table .adaptive_td table{
+text-align: left;
+margin: 0 auto;
+=
+}
+.article_img img {
+max-width: 100%;
+max-height: 100%;
+height: aut=
+o;
+width: auto;
+}
+.preheader {
+display: none !important;
+}
+.pho=
+ne_font_m {
+font-size: 16px !important;
+}
+.phone_hidden {
+display: =
+none !important;
+}
+.phone_conf_speackers {
+display: block;
+float: l=
+eft;
+width: 50% !important;
+}
+}
+</style>
+</head>
+<body style=3D=
+"height: 100% !important; width: 100% !important; background-color: #ffffff=
+; margin: 0; padding: 0; font-family:Arial,Helvetica,sans-serif; font-weigh=
+t: normal; font-size: 15px;" bgcolor=3D"#ffffff" text=3D"#333333" topmargin=
+=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" link=3D"#6339f=
+5" alink=3D"#6339f5" vlink=3D"#6339f5" color=3D"#333333">
+<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%; height: 10=
+0%; background-color: #ffffff;border-collapse:collapse;">
+<tr>
+<td styl=
+e=3D"vertical-align: top; padding:0 20px; background-color: #ffffff;" align=
+=3D"center">
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" style=3D"border-collapse:collapse;min-width:375px;max-width:560p=
+x;" class=3D"main">
+<tr>
+<td align=3D"left">
+<table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width: 100%;border-=
+collapse:collapse;">
+<!-- header -->
+<tr>
+<td height=3D"10"><div styl=
+e=3D"line-height:0;"><div class=3D"preheader" style=3D"display:none;font-si=
+ze:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0=
+;overflow:hidden">=D0=A1=D1=83=D0=BC=D0=BC=D0=B0=D1=80=D0=BD=D0=B0=D1=8F =
+=D1=81=D1=82=D0=B0=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B0 =D0=B8 =D0=
+=BD=D0=B5=D1=81=D0=BA=D0=BE=D0=BB=D1=8C=D0=BA=D0=BE =D1=80=D0=B5=D0=BA=
+=D0=BE=D0=BC=D0=B5=D0=BD=D0=B4=D0=B0=D1=86=D0=B8=D0=B9, =D0=BA=D0=B0=D0=
+=BA =D0=B5=D1=91 =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C.</div></d=
+iv></td>
+</tr>
+<!-- end header -->
+<!-- body -->
+<!-- end body -->=
+
+<!-- newbody -->
+<tr>
+<td>
+<table width=3D"100%" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;" id=3D"r=
+nd177080661305">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" style=3D"width:100%;border-collapse:collapse;"=
+ class=3D"adaptive_table">
+<tr>
+<td>
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;"=
+>
+<tr>
+<td style=3D"padding:10px 0">
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;"=
+ dir=3D"rtl" class=3D"adaptive_table">
+<tr class=3D"adaptive_tr">
+<td v=
+align=3D"top" class=3D"adaptive_td article_img" dir=3D"ltr">
+<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-=
+collapse:collapse;" class=3D"adaptive_table">
+<tr>
+<td>
+<span style=
+=3D"color:#333333;font-size:24px;line-height:32px;font-family:Arial,Helveti=
+ca,sans-serif;">
+=D0=9E=D1=82=D1=87=D0=B5=D1=82 =D0=B7=D0=B0=C2=A0=D1=
+=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C =D0=BF=D0=BE=C2=A0=D1=81=D1=82=D0=B0=
+=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=
+=89=D0=B5=D0=BD=D0=B8=D0=B9 =D0=A8=D0=B0=D1=82=D0=BE
+</span>
+</td>
+</=
+tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td=
+>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<td sty=
+le=3D"padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<td styl=
+e=3D"padding:5px 0 0;background:#6339f5;background:-moz-linear-gradient(lef=
+t, #6339f5 0%, #f84177 100%);background:-webkit-linear-gradient(left, #6339=
+f5 0%,#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#f84177 =
+100%);line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</tr>
+<=
+/table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+=
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-s=
+ize:20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">
+=
+=D0=A8=D0=B0=D1=82=D0=BE =D0=BD=D0=B0=C2=A0=D0=97=D0=B0=D1=80=D0=B5=D1=
+=87=D0=BD=D0=BE=D0=B9 =D1=83=D0=BB=D0=B8=D1=86=D0=B5 =D0=B2=C2=A0=D0=90=
+=D0=BA=D1=81=D0=B0=D0=B5
+</span>
+</td>
+</tr>
+</table>
+</td>
+</t=
+r>
+<tr><td>
+<table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" s=
+tyle=3D"width:100%; max-width:320px;border-collapse:collapse;" border=3D"0"=
+ class=3D"adaptive_table">
+<tr>
+<td>
+<div style=3D"border: 1px solid =
+#e0e2e8;border-radius: 6px;">
+<table cellpadding=3D"16" cellspacing=3D"0"=
+ width=3D"100%" style=3D"width:100%;border-collapse:collapse;" border=3D"0"=
+ class=3D"adaptive_table">
+<tr valign=3D"top">
+<td width=3D"100%">
+<s=
+pan style=3D"font-size:16px;line-height:28px;color:#2c2d36;">=D0=9F=D0=
+=BE=D0=B7=D0=B8=D1=86=D0=B8=D0=B8</span>
+<br>
+<span style=3D"font-size:=
+13px;line-height:20px;color:#2c2d36;">=D0=92 =D0=B2=D1=8B=D0=B4=D0=B0=D1=
+=87=D0=B5 =D0=BF=D0=BE =D0=B7=D0=B0=D0=BF=D1=80=D0=BE=D1=81=D1=83: =C2=
+=AB=D0=91=D0=B0=D0=B7=D1=8B =D0=BE=D1=82=D0=B4=D1=8B=D1=85=D0=B0 =D0=BD=
+=D0=B0=C2=A0=D0=B1=D0=B5=D1=80=D0=B5=D0=B3=D1=83 =D0=B2=C2=A0=D0=A0=D0=
+=BE=D1=81=D1=82=D0=BE=D0=B2=D0=B5-=D0=BD=D0=B0-=D0=94=D0=BE=D0=BD=D1=83=
+=C2=BB</span>
+</td>
+<td align=3D"right" nowrap><span style=3D"font-size=
+:16px;line-height:24px;color:#fb403f;white-space:nowrap;">=E2=80=93=
+=E2=80=8910</span></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>=
+
+<td height=3D"12" style=3D"line-height:0;"><div style=3D"line-height:0;"=
+></div></td>
+</tr>
+</table>
+<div style=3D"position: relative;border: =
+1px solid #e0e2e8;border-radius: 6px; max-width: 320px;">
+<table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width:100%;border-colla=
+pse:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr>
+<td height=
+=3D"16" colspan=3D"5" style=3D"line-height:0;"><div style=3D"line-height:0;=
+"></div></td>
+</tr>
+<tr>
+<td width=3D"16"></td>
+<td width=3D"266">=
+
+<span style=3D"font-size:16px;line-height:24px;color:#2c2d36;">=D0=9F=
+=D0=BE=D0=BA=D0=B0=D0=B7=D1=8B</span>
+</td>
+<td width=3D"13"></td>
+<t=
+d align=3D"right">
+<span style=3D"font-size:16px;line-height:24px;color:#=
+2c2d36;white-space:nowrap;">852</span>
+</td>
+<td width=3D"16"></td>
+<=
+/tr>
+<tr>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"lin=
+e-height:0;"><div style=3D"line-height:0;"></div></td>
+<td height=3D"16" =
+align=3D"center" style=3D"line-height:0;">
+<div style=3D"line-height:0; d=
+isplay: inline-block; width: 13px; height:16px; background: url('https://zo=
+example.test/images/example.test') #fff top center no-repeat;"></div>
+</t=
+d>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"line-height:=
+0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<tr>
+<td height=
+=3D"16" align=3D"center" colspan=3D"2" style=3D"line-height:0;border-top: 1=
+px solid #e0e2e8;"><div style=3D"line-height:0;"></div></td>
+<td height=
+=3D"16" align=3D"center" style=3D"line-height:0;">
+<div style=3D"line-hei=
+ght:0; display: inline-block; width: 13px; height:16px; background: url('ht=
+tps://example.test/images/example.test') #fff bottom center no-repeat;"><=
+/div>
+</td>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"l=
+ine-height:0;border-top: 1px solid #e0e2e8;"><div style=3D"line-height:0;">=
+</div></td>
+</tr>
+<tr>
+<td width=3D"16"></td>
+<td width=3D"">
+<sp=
+an style=3D"font-size:16px;line-height:24px;color:#2c2d36;">=D0=A3=D0=BD=
+=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=D0=BD=D1=8B=D0=B5 =D0=BF=D0=BE=D1=81=D0=
+=B5=D1=89=D0=B5=D0=BD=D0=B8=D1=8F</span>
+</td>
+<td width=3D"13"></td>=
+
+<td align=3D"right">
+<span style=3D"font-size:16px;line-height:24px;co=
+lor:#2c2d36;white-space:nowrap;">32</span>
+</td>
+<td width=3D"16"></td>=
+
+</tr>
+<tr>
+<td height=3D"16" colspan=3D"5" style=3D"line-height:0;">=
+<div style=3D"line-height:0;"></div></td>
+</tr>
+</table>
+</div>
+<br=
+>
+</td></tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<t=
+d style=3D"padding:10px 0 30px;">
+<a href=3D"https://example.test/r/698c5d=
+5558ae485a3d0b02c0/4c04806d80ffb05968a60b5130d4aaf1/" style=3D"background-c=
+olor:#6339f5;border:1px solid #6339f5;border-radius:4px;color:#ffffff;displ=
+ay:block;display:inline-block;font-family:Arial,Helvetica,sans-serif;font-s=
+ize:20px;font-weight:normal;text-align:center;text-decoration:none;line-hei=
+ght:24px;padding:8px 25px;-webkit-text-size-adjust:none;" target=3D"_blank"=
+>
+=C2=A0=C2=A0=D0=9F=D0=BE=D0=B4=D1=80=D0=BE=D0=B1=D0=BD=D0=B5=D0=B5 =
+=E2=80=94 =D0=B2 =D0=BB=D0=B8=D1=87=D0=BD=D0=BE=D0=BC =D0=BA=D0=B0=D0=B1=
+=D0=B8=D0=BD=D0=B5=D1=82=D0=B5=C2=A0=C2=A0
+</a>
+</td>
+</tr>
+</table=
+>
+</td>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+<td>
+<table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-coll=
+apse:collapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"110" style=3D"border-colla=
+pse:collapse;">
+<tr>
+<td style=3D"padding:5px 0 0;background:#6339f5;ba=
+ckground:-moz-linear-gradient(left, #6339f5 0%, #f84177 100%);background:-w=
+ebkit-linear-gradient(left, #6339f5 0%,#f84177 100%);background:linear-grad=
+ient(to right,#6339f5 0%,#f84177 100%);line-height:0;height:0;"></td>
+</t=
+r>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<=
+span style=3D"color:#333333;font-size:20px;line-height:30px;font-family:Ari=
+al,Helvetica,sans-serif;">
+=D0=9A=D0=B0=D0=BA =D1=83=D0=BB=D1=83=D1=87=
+=D1=88=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=BA=D0=B0=D0=B7=D0=B0=D1=82=D0=
+=B5=D0=BB=D0=B8 =D1=83=C2=A0=D0=A8=D0=B0=D1=82=D0=BE:
+</span>
+</td>
+<=
+/tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collap=
+se;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#33333=
+3;font-size:16px;line-height:23px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=9E=D1=82=D0=B2=D0=B5=D1=82=D1=8C=D1=82=D0=B5 =D0=BD=D0=B0=C2=A0=
+=D0=BE=D1=82=D0=B7=D1=8B=D0=B2=D1=8B =D0=BA=D0=BB=D0=B8=D0=B5=D0=BD=D1=
+=82=D0=BE=D0=B2 <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"=C2=BB100%=C2=BB" style=3D"=C2=BBborder-collapse:collapse;=C2=BB">
+=
+<tr>
+<td valign=3D"top" class=3D"article_img" style=3D"padding:10px 0;">=
+
+<p style=3D"line-height:0;margin:0;">
+<img src=3D"https://example.test/=
+nXjblXXPpg8NqRMC0uzClg/4/9/5c923b03c4f77e0302667d75_5ca1d8883ad96.png" styl=
+e=3D"border-radius: 4px;max-width:560px;width: 100%;">
+</p>
+</td>
+</t=
+r>
+</table>
+</span>
+</td>
+</tr>
+</table>
+<table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:c=
+ollapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;">
+<a href=3D"https:=
+//example.test/r/698c5d5558ae485a3d0b02c1/75ff6016ad732cdfab54ba1c25bb451b/"=
+ style=3D"background-color:#6339f5;border:1px solid #6339f5;border-radius:4=
+px;color:#ffffff;display:block;display:inline-block;font-family:Arial,Helve=
+tica,sans-serif;font-size:20px;font-weight:normal;text-align:center;text-de=
+coration:none;line-height:24px;padding:8px 25px;-webkit-text-size-adjust:no=
+ne;" target=3D"_blank">
+=D0=9E=D1=82=D0=B2=D0=B5=D1=82=D0=B8=D1=82=D1=
+=8C
+</a>
+</td>
+</tr>
+</table>
+<table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+=
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-s=
+ize:16px;line-height:23px;font-family:Arial,Helvetica,sans-serif;">
+=
+=D0=9F=D0=BE=D0=BC=D0=B8=D0=BC=D0=BE =D1=8D=D1=82=D0=BE=D0=B3=D0=BE, =D0=
+=BF=D0=BE=D0=B4=D0=BD=D1=8F=D1=82=D1=8C=D1=81=D1=8F =D0=B2=D1=8B=D1=88=
+=D0=B5 =D0=B2=C2=A0=D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE=D0=
+=BC=D0=BE=D0=B3=D1=83=D1=82:<br>
+=E2=80=94 <a href=3D"https://example.test=
+/r/698c5d5558ae485a3d0b02c2/a3edd9f3fe9ef503d77d293cf15b34c2/" target=3D"_b=
+lank" style=3D"color:#6339f5;text-decoration:none">=D0=91=D0=BE=D0=BB=D1=
+=8C=D1=88=D0=B5=D0=B5 =D0=BA=D0=BE=D0=BB=D0=B8=D1=87=D0=B5=D1=81=D1=82=
+=D0=B2=D0=BE =D0=B0=D0=BA=D1=86=D0=B8=D0=B9</a><br>
+=E2=80=94 <a href=3D"=
+https://example.test/r/698c5d5558ae485a3d0b02c3/20567a7ed37ab984621afed62e8e=
+cba2/" target=3D"_blank" style=3D"color:#6339f5;text-decoration:none">=
+=D0=94=D0=BE=D0=B1=D0=B0=D0=B2=D0=BB=D0=B5=D0=BD=D0=BD=D1=8B=D0=B5 =D1=
+=81=D0=BF=D0=B5=D1=86=D0=B8=D0=B0=D0=BB=D0=B8=D1=81=D1=82=D1=8B: =D0=BF=
+=D0=BE=D0=BA=D0=B0=D0=B6=D0=B8=D1=82=D0=B5 =D0=BF=D0=BE=D1=82=D0=B5=D0=
+=BD=D1=86=D0=B8=D0=B0=D0=BB=D1=8C=D0=BD=D1=8B=D0=BC =D0=BA=D0=BB=D0=B8=
+=D0=B5=D0=BD=D1=82=D0=B0=D0=BC, =D0=BA=D1=82=D0=BE =D1=83=C2=A0=D0=B2=D0=
+=B0=D1=81 =D1=80=D0=B0=D0=B1=D0=BE=D1=82=D0=B0=D0=B5=D1=82</a><br>
+</span=
+>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<=
+/table>
+</td>
+</tr>
+<!-- offset -->
+<tr>
+<td height=3D"30" style=
+=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<!-=
+- offset -->
+<!-- end newbody -->
+<!-- footer -->
+<tr>
+<td>
+<tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse=
+:collapse;">
+<tr>
+<td style=3D"padding:20px 0;border-top:1px solid #e2e=
+2e6;">
+<span style=3D"color:#333333;font-size:16px;line-height:25px;font-=
+family:Arial,Helvetica,sans-serif;text-decoration:none;">=D0=92=D1=8B =
+=D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B8=D0=BB=D0=B8 =D1=8D=D1=82=D0=BE =D0=
+=BF=D0=B8=D1=81=D1=8C=D0=BC=D0=BE, =D0=BF=D0=BE=D1=82=D0=BE=D0=BC=D1=83 =
+=D1=87=D1=82=D0=BE =D0=B8=D0=BC=D0=B5=D0=B5=D1=82=D0=B5 =D0=B4=D0=BE=D1=
+=81=D1=82=D1=83=D0=BF =D0=B2 <a href=3D"https://example.test/r/698c5d5558ae4=
+85a3d0b02c4/263cd566e88e486673f39815d6d59526/" style=3D"color:#6339f5;text-=
+decoration:none;" target=3D"_blank">=D0=9B=D0=B8=D1=87=D0=BD=D1=8B=D0=B9 =
+=D0=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82</a>.=09<br><a href=3D"https://zo=
+example.test/r/698c5d5558ae485a3d0b02bf/50607bd7a11b197b303ddc95d9a64883/" sty=
+le=3D"color:#6339f5;text-decoration:none;" target=3D"_blank">=D0=9D=D0=
+=B5 =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D1=82=D1=8C =D0=B1=D0=BE=D0=BB=
+=D1=8C=D1=88=D0=B5 =D1=82=D0=B0=D0=BA=D0=B8=D1=85 =D0=BF=D0=B8=D1=81=D0=
+=B5=D0=BC</a>.</span>=09</td>
+</tr>
+<tr>
+<td>
+<span style=3D"color:=
+#bbbcc4;font-size:16px;line-height:25px;font-family:Arial,Helvetica,sans-se=
+rif;text-decoration:none;">=D0=A1 =D1=83=D0=B2=D0=B0=D0=B6=D0=B5=D0=BD=
+=D0=B8=D0=B5=D0=BC, =D0=BA=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0 example.test</spa=
+n>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"30" st=
+yle=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+=
+<!-- end footer -->
+<tr>
+<td><img src=3D"https://example.test/i/698c5d55=
+58ae485a3d0b02be/example.test" style=3D"display:none" width=3D"1" height=3D"=
+1" border=3D"0"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>=
+
+</tr>
+</table>
+</body>
+</html>
+
+--2DB403C1E6B.1770806627/example.test--

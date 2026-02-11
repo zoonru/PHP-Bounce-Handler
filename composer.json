@@ -1,9 +1,33 @@
 {
-	"name":"zoon/php-bounce-handler",
-	"description": "This class can be used to parse bounced message reports.",
-	"autoload": { "classmap": ["bounce_driver.class.php"] },
-	"license": "MIT",
+	"name": "zoonru/php-bounce-handler",
+	"version": "8.0.0",
 	"require": {
-		"php": ">=7.0"
+		"php": ">=8.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"Zoon\\BounceHandler\\": "src/"
+		}
+	},
+	"require-dev": {
+		"vimeo/psalm": "^6.15",
+		"phpcsstandards/phpcsutils": "^1.2",
+		"squizlabs/php_codesniffer": "^4.0",
+		"phpunit/phpunit": "^11.0"
+	},
+	"scripts": {
+		"psalm": "psalm --no-cache",
+		"phpcs": "phpcs",
+		"phpcbf": "phpcbf",
+		"test": "phpunit",
+		"lint": [
+			"@psalm",
+			"@phpcs"
+		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
