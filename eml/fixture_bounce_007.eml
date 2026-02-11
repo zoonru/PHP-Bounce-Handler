@@ -1,0 +1,138 @@
+Delivered-To: postmaster@example.test
+Received-SPF: none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @) client-ip=192.0.2.100; envelope-from=@; helo=example.test;
+Authentication-Results: example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass(p=reject dis=none)  example.test=example.test
+ARC-Seal: i=1; a=rsa-sha256; t=1770799207; cv=none; 
+	d=example.test; s=zohoarc; 
+	b=YY6MD7maQvG3qHDikuMmEYG5hw8EBBFmoijMmJtNS1nRPZrb6dGWSD4wC0Q2mCmlX36/my1ojHzyKmrYOH91DSax46y6HP77Mxt8bL4g2w60VZLADuh+KibgLlWMxC0GEgN2QGC1mbSAP/G707zmF84SEwcc7/plQ54O0z82LuE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=zohoarc; 
+	t=1770799207; h=Content-Type:Date:Date:From:From:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=y49TCw5MJp9GZJqHBXxBa2zlXKgn301nYXpi87vnJt8=; 
+	b=lJNnuZ3kYCAhugcTb5/FpTe+gERFRBavMQSeEipg0aYCwxgrIoTo7GS/xG+8lkD1A8QnBgnV8YZh3JJAiuZNWXrWKY94/musbBSlrRfcX1qm8XH+lFfB/nwRjinSXSIVaTqA1H57MvyzW050gKk3wuO8to3ATodU0aYkPTwmw+k=
+ARC-Authentication-Results: i=1; example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass example.test=<mailer-daemon@example.test> (p=reject dis=none)
+Return-Path: <>
+Received: from example.test (example.test [192.0.2.100]) by example.test
+	with SMTPS id 177079920727367.65685609861919; Wed, 11 Feb 2026 00:40:07 -0800 (PST)
+Received: from root by exim-mx-79b98d666-mdpxc with local id 1vq5lU-00000000Ult-3GOa
+	for postmaster@example.test; Wed, 11 Feb 2026 11:40:04 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=example.test; s=mail4; h=Date:Message-Id:Subject:MIME-Version:Content-Type:
+	References:To:From:From:Sender:Reply-To:Subject:To:Cc:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
+	List-Archive:X-Cloud-Ids; bh=y49TCw5MJp9GZJqHBXxBa2zlXKgn301nYXpi87vnJt8=; b=
+	JDxaBE4EjuMkeAwFgA0lbCZqu+sqxBkhLcipW4H42V1iGTlnc483ysCAOkzY1hGR6/cHk22keHWZZ
+	XQXquyM9MiJNbAJPjSPh2i47b++CUq5MxFJ7mYuPH3eaYywqd3UZbHFYcKffsh2dKK1Ko/NYROPCP
+	WJbzh7U21kNLx7FfLdAUVh5g25UrUTrjHwvvUBXFu+IPGb3U3qBw0JOCQtVBxGV7hiAEhvoO+FPSj
+	EKaJPrhliju35GZ6d5j6bCdxu8KKDvUHJeLG1iKzdg3fbXVymVKzyDzD5UjDv6mBoqV5Wh+O9XCTa
+	BKS/Q7f96hGiJjxXKyNeRE9y+YsrgkfTKA==;
+X-Failed-Recipients: recipient.bounce7@example.test
+X-Mailer-Daemon-Recipients: recipient.bounce7@example.test
+Auto-Submitted: auto-replied
+From: mailer-daemon@example.test
+To: postmaster@example.test
+X-Mailer-Daemon-Error: user_not_found
+References: <698c40638ba1935d0603d930-196a2b97fcbfe4edaa5d919b0ce223fe@example.test>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1770799204-eximdsn-390798314
+MIME-Version: 1.0
+Subject: =?UTF-8?B?0JLQsNGI0LUg0YHQvtC+0LHRidC10L3QuNC1INC90LUg0LTQvtGB0YLQsNCy0LvQtdC90L4=?=. Mail failure.
+Message-Id: <E1vq5lU-00000000Ult-3GOa@exim-mx-79b98d666-mdpxc>
+Date: Wed, 11 Feb 2026 11:40:04 +0300
+X-ZohoMail-DKIM: pass (identity @example.test)
+X-ZohoMail-Owner: <E1vq5lU-00000000Ult-3GOa@exim-mx-79b98d666-mdpxc>+zmo_0_
+
+This is a MIME-encapsulated message.
+
+--1770799204-eximdsn-390798314
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+
+Это письмо создано автоматически сервером example.test, отвечать на него не нужно.
+
+К сожалению, Ваше письмо не может быть доставлено одному или нескольким получателям:
+
+  recipient.bounce7@example.test
+    550 Message was not accepted -- invalid mailbox.  Local mailbox recipient.bounce7@example.test is unavailable:
+    user not found
+
+Рекомендуем Вам проверить корректность указания адресов получателей.
+
+**********************
+
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  recipient.bounce7@example.test
+    550 Message was not accepted -- invalid mailbox.  Local mailbox recipient.bounce7@example.test is unavailable:
+    user not found
+
+--1770799204-eximdsn-390798314
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; exim-mx-79b98d666-mdpxc
+
+Action: failed
+Final-Recipient: rfc822;recipient.bounce7@example.test
+Status: 5.0.0
+Remote-MTA: dns; 192.0.2.100
+
+--1770799204-eximdsn-390798314
+Content-type: text/rfc822-headers
+
+Return-path: <postmaster@example.test>
+Received-SPF: pass (exim-mx-79b98d666-765sh: domain of example.test designates 192.0.2.100 as permitted sender) client-ip=192.0.2.100; envelope-from=postmaster@example.test; helo=example.test;
+Received: from example.test ([192.0.2.100]:48260)
+	by exim-mx-79b98d666-765sh with esmtp (envelope-from <postmaster@example.test>)
+	id 1vq5lT-00000000ISi-3pdo
+	for recipient.bounce7@example.test; Wed, 11 Feb 2026 11:40:04 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test;
+	s=z01; h=Content-Transfer-Encoding:Content-Type:Date:MIME-Version:To:Subject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DbGkOjImsBZadhvf7DqzdDZP3CDwzRltsnKMSOgm1VE=; b=v/NKzK1zrTENSGJW3AiMS2Zmcj
+	k6TJbVe5odF1yxTz+atDoC9D8/VgpfbsgKSeSiyciJxafYtdZdh9FVZRoTdiBW+XQOWexrCpYjKMx
+	Cyjt46wdL95lDHmJ0t0231xJTXhwDOka7T/LCg3QXCRuLU06qKwPX4P51eoHPUErR23Y=;
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+Message-ID: <698c40638ba1935d0603d930-196a2b97fcbfe4edaa5d919b0ce223fe@example.test>
+List-Unsubscribe: <https://example.test/r/698c40638ba1935d0603d931/63bf7cfdaca919502cb28fd7f92b6f3c/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Postmaster-Msgtype: monthly_report_CorpArticle
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A_=D0=9C=D0=B8=D1=80?=
+ =?utf-8?Q?_=D0=BC=D0=B0=D1=81=D1=81=D0=B0=D0=B6=D0=B0?=
+To: recipient.bounce7@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 11:40:03 +0300
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-6b629377: 1
+X-7564579A: B8F34718100C35BD
+X-77F55803: E822A06ED42C499A5D890D6ED4354652259D82677AF8083B0068E28161E8A70A0BBDAAE39103F3638701F0628C4B95CB26B0E17E14B4D51A383E619E7F2BBB9CC16CF11C65C7608F305CF30B2AFD6B73074A40F52AF1438D
+X-7FA49CB5: A9FCD207E66530D8A18204E546F3947C2F58FB8660D032BBE8660EE58D259860C8A9BA7A39EFB7662668BECDD4E80C2709758206774B3CD2D5E8D9A59859A8B6829F82E60A914AE671492C2D3FF63AF69449624AB7ADAF37EB0A3557CC2464CF277E793F4B08E884C33910196EAF07A41288C9E4A12A65B8BD9CCCA9EDD067B18F958DDE0D1B62104E1E7243831EC1F578DA827A17800CE784A0A6B507D67EEF6320D30F47244B792668BECDD4E80C2782BFA309970D60C2B287FD4696A6DC2F5F5C1EE8F4F765FCC908CD1B87A134A2BFD28B28ED4578732EF20D2F80756B5F40A5AABA2AD37119BCF491FFA38154B6D5E8D9A59859A8B64D3D36F7518B7AD6BCF491FFA38154B6B5C8C57E37DE458B543C44CD4AFD0029B289B51CCB092ABD8AA50765F7900637B5932F77F0041FFBB3661434B16C20AC508DBCF57D5253891B59CA4C82EFA658D9742A86760EED9AFF6510965A39A2C5C753134DFF4A03B56F9789CCF6C18C3F8528715B7D10C86859CC434672EE6371117882F4460429724CE54428C33FAD305F5C1EE8F4F765FCAA867293B0326636D2E47CDBA5A96583BD4B6F7A4D31EC0BC014FD901B82EE079FA2833FD35BB23D27C277FBC8AE2E8BAA867293B0326636D2E47CDBA5A96583BA9C0B312567BB23BDAD6C7F3747799A
+X-C1DE0DAB: 0D63561A33F958A525CD34A54570EB885002B1117B3ED6960990582C01492F659E040399BDE4761E277AA237ED671D4372AF3B35EA4094CC7AE820D2C17D0E569C5DF10A05D560A97C2FCC2414B0771EAE9AA65D09B166D8B0077C9BD27E903FC79554A2A72441324ECABB3E3C951CC822D2CEDE4E95CF1B1E618B5D5F965AFD98EAA0EED4DE4A60B2D1C9E48B6DC60AE2A7E19323554B120D859BC32D74B8B5DE18C99E615CD3F64EAF44D9B582CE87C8A4C02DF684249C2E763F503762DF50E5002257AE43D78AF6228F3B180FA51DD0283EA430FA964BEEBF092486A2C6B27E0012C66AE17B0017C1E67C4FCC32AC4AC6F0C3BBD4C0F458C12E6D310A6D5381DD5B4B85AC6117
+X-C8649E89: 1C3962B70DF3F0AD73CAD6646DEDE19107FEB66892259D58A0CBE312C330D7D583CD26C36C883521FC0B9F89525902EE6F57B2FD27647F25E66C117BDB76D659427191ADFE300884A4939F719EC4117995A47699C58F751F1E5BE4DACC0E99D6625ED7148E523147B8341EE9D5BE9A0A86B7E052036A371B3E50D6A7AAC3B92617850D9D4067379652EE4E5D9E54FDA44C41F94D744909CE22316FEE5BB4DDADC5D4351CFEA799CF83DB18EBE73F7D69
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+OURs3E5O9HgLbe1f6qYhvLutKFiSd6Yd7yPpbiiZ/d5BBLFdbzIJ3dJHSwHbuu7kIPM9iHDMiJGXxwYFMoo0SxuNtaMxMZ+gRifRcdPfmYJJW0NSF29XmSU=
+X-F696D7D5: ek6Quxu+5JWIlFphNMH542mHPiSGhqz1MNTX9XjJE1kDTUlqABwyBw==
+X-Mras: Ok
+X-Spam: undefined
+Authentication-Results: example.test; spf=pass (exim-mx-79b98d666-765sh: domain of example.test designates 192.0.2.100 as permitted sender) example.test=postmaster@example.test example.test=example.test;
+	 dkim=pass header.d=example.test; dmarc=pass example.test=info@example.test
+
+
+--1770799204-eximdsn-390798314--

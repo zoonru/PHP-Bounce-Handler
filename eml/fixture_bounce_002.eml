@@ -1,0 +1,624 @@
+Delivered-To: postmaster@example.test
+Received-SPF: pass (zohomail.com: domain of mailer2.example.test designates 192.0.2.20 as permitted sender) client-ip=192.0.2.20; envelope-from=postmaster@mailer2.example.test; helo=mailer2.example.test;
+Authentication-Results: mx.zohomail.com;
+	spf=pass (zohomail.com: domain of mailer2.example.test designates 192.0.2.20 as permitted sender)  smtp.mailfrom=postmaster@mailer2.example.test;
+	dmarc=pass(p=quarantine dis=none)  header.from=mailer2.example.test
+ARC-Seal: i=1; a=rsa-sha256; t=1770819340; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GJMi6r6qFKLIb8cgbCIOg6D9QenfAydmErfqJSLbS6MlDyfipwsN6LAXRFhOOMNEMg0cx9qDz7VjZfwMWPd29m7AgeXlOW51MejyGwjnbsuSdY5nLVIZWJQuuu+7E1Bs501WuvV4i2z0s3DvXoEWQUtmxgypwLbuIb+H9sj4ZLE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1770819340; h=Content-Type:Date:Date:From:From:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=4sKhaxRZ6bVJpaeWjWbgWTnKHX9QU5RQqtaRsdBAIcc=; 
+	b=Mz2YmZbjnEacFybe/VM0c3VC37117UCzsmMLZZrDc8Duj8F19yKmsU9sSlaiwTE+kpbY3CNYh3JnM6/5a2T/1UHhg1Jz/lFCvatFqNKj2dMEbOMtL6P4AGwL3458bnFbQ+QV/uON7JtHojUxZk7Gihk5B0q1WNVuOqKXvlmTmmM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	spf=pass (zohomail.com: domain of mailer2.example.test designates 192.0.2.20 as permitted sender)  smtp.mailfrom=postmaster@mailer2.example.test;
+	dmarc=pass header.from=<Mailer-Daemon@mailer2.example.test> (p=quarantine dis=none)
+Received: from mailer2.example.test (mailer2.example.test [192.0.2.20]) by mx.zohomail.com
+	with SMTPS id 1770819340198850.9607548860796; Wed, 11 Feb 2026 06:15:40 -0800 (PST)
+Return-Path: <postmaster@mailer2.example.test>
+X-Failed-Recipients: recipient.two@example.test
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@mailer2.example.test>
+To: postmaster@example.test
+References: <698c8f09250d7d5e340635a2-92c2ce4871436f6bec7c7f9bbce7157c@example.test>
+Content-Type: multipart/report; report-type=delivery-status; boundary=1770819338-eximdsn-1270251040
+MIME-Version: 1.0
+Subject: Mail delivery failed
+Message-Id: <E1vqB0E-000XFF-BO@mailer2.example.test>
+Date: Wed, 11 Feb 2026 17:15:38 +0300
+
+--1770819338-eximdsn-1270251040
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message sent by
+
+  <sender@example.test>
+
+could not be delivered to one or more of its recipients. The following
+address(es) failed:
+
+  recipient.two@example.test
+    host mx.remote-2.example.net [198.51.100.20]
+    SMTP error from remote mail server after end of data:
+    550 Message was not accepted -- invalid mailbox.  Local mailbox recipient.two@example.test is unavailable:
+    user not found
+
+--1770819338-eximdsn-1270251040
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; mailer2.example.test
+
+Action: failed
+Final-Recipient: rfc822;recipient.two@example.test
+Status: 5.0.0
+Remote-MTA: dns; mx.remote-2.example.net
+Diagnostic-Code: smtp; 550 Message was not accepted -- invalid mailbox.  Local mailbox recipient.two@example.test is unavailable: user not found
+
+--1770819338-eximdsn-1270251040
+Content-type: message/rfc822
+
+Return-path: <sender@example.test>
+Received: from [10.0.0.20] (helo=[127.0.0.1])
+	by mailer2.example.test with esmtp (Exim 4.93)
+	(envelope-from <sender@example.test>)
+	id 1vqB0D-000XEm-ML
+	for recipient.two@example.test; Wed, 11 Feb 2026 17:15:37 +0300
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <sender@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <sender@example.test>
+Message-ID: <698c8f09250d7d5e340635a2-92c2ce4871436f6bec7c7f9bbce7157c@example.test>
+List-Unsubscribe: <https://example.test/r/698c8f09250d7d5e340635a3/c2175e73e804843b8124dc80bf131c45/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Postmaster-Msgtype: monthly_report_CorpArticle
+List-ID: <monthly_report.z.module.email.view.corparticle.list-id.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A_=D0=9B=D0=A3=D0=98?=
+ =?utf-8?Q?=D0=94=D0=96=D0=98?=
+To: recipient.two@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 17:15:37 +0300
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<head>
+<title></title>
+<meta http-equiv=3D"content-type" conte=
+nt=3D"text/html; charset=3Dutf-8">
+<style>
+@media only screen and (max-=
+device-width: 600px) {
+.main{
+width: 100%;
+max-width: 560px;
+}
+.a=
+daptive_table{
+display: block;
+width: 100%;
+}
+.adaptive_table > tbo=
+dy{
+display: block;
+width: 100%;
+}
+.adaptive_table .adaptive_tr{
+=
+display: block;
+width: 100%;
+padding: 0 0 15px;
+}
+.adaptive_table .=
+adaptive_td{
+display: block;
+text-align: center;
+width: 100%;
+}
+.=
+adaptive_table .adaptive_td table{
+text-align: left;
+margin: 0 auto;
+=
+}
+.article_img img {
+max-width: 100%;
+max-height: 100%;
+height: aut=
+o;
+width: auto;
+}
+.preheader {
+display: none !important;
+}
+.pho=
+ne_font_m {
+font-size: 16px !important;
+}
+.phone_hidden {
+display: =
+none !important;
+}
+.phone_conf_speackers {
+display: block;
+float: l=
+eft;
+width: 50% !important;
+}
+}
+</style>
+</head>
+<body style=3D=
+"height: 100% !important; width: 100% !important; background-color: #ffffff=
+; margin: 0; padding: 0; font-family:Arial,Helvetica,sans-serif; font-weigh=
+t: normal; font-size: 15px;" bgcolor=3D"#ffffff" text=3D"#333333" topmargin=
+=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" link=3D"#6339f=
+5" alink=3D"#6339f5" vlink=3D"#6339f5" color=3D"#333333">
+<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%; height: 10=
+0%; background-color: #ffffff;border-collapse:collapse;">
+<tr>
+<td styl=
+e=3D"vertical-align: top; padding:0 20px; background-color: #ffffff;" align=
+=3D"center">
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" style=3D"border-collapse:collapse;min-width:375px;max-width:560p=
+x;" class=3D"main">
+<tr>
+<td align=3D"left">
+<table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width: 100%;border-=
+collapse:collapse;">
+<!-- header -->
+<tr>
+<td height=3D"10"><div styl=
+e=3D"line-height:0;"><div class=3D"preheader" style=3D"font-size:1px;color:=
+#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hid=
+den">=D0=A1=D1=83=D0=BC=D0=BC=D0=B0=D1=80=D0=BD=D0=B0=D1=8F =D1=81=D1=82=
+=D0=B0=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B0 =D0=B8 =D0=BD=D0=B5=D1=
+=81=D0=BA=D0=BE=D0=BB=D1=8C=D0=BA=D0=BE =D1=80=D0=B5=D0=BA=D0=BE=D0=BC=
+=D0=B5=D0=BD=D0=B4=D0=B0=D1=86=D0=B8=D0=B9, =D0=BA=D0=B0=D0=BA =D0=B5=D1=
+=91 =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C.</div></div></td>
+</=
+tr>
+<!-- end header -->
+<!-- body -->
+<!-- end body -->
+<!-- newbod=
+y -->
+<tr>
+<td>
+<table width=3D"100%" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0" style=3D"border-collapse:collapse;" id=3D"rnd1770819337=
+03">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" width=3D"100%" style=3D"width:100%;border-collapse:collapse;" class=3D"ad=
+aptive_table">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<t=
+d style=3D"padding:10px 0">
+<table border=3D"0" cellpadding=3D"0" cellspa=
+cing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;" dir=3D"rtl" c=
+lass=3D"adaptive_table">
+<tr class=3D"adaptive_tr">
+<td valign=3D"top" =
+class=3D"adaptive_td article_img" dir=3D"ltr">
+<table border=3D"0" cellpa=
+dding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:colla=
+pse;" class=3D"adaptive_table">
+<tr>
+<td>
+<span style=3D"color:#33333=
+3;font-size:24px;line-height:32px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=9E=D1=82=D1=87=D0=B5=D1=82 =D0=B7=D0=B0=C2=A0=D1=8F=D0=BD=D0=B2=
+=D0=B0=D1=80=D1=8C =D0=BF=D0=BE=C2=A0=D1=81=D1=82=D0=B0=D1=82=D0=B8=D1=
+=81=D1=82=D0=B8=D0=BA=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=89=D0=B5=D0=BD=
+=D0=B8=D0=B9 =D0=B1=D1=8C=D1=8E=D1=82=D0=B8-=D1=81=D1=82=D1=83=D0=B4=D0=
+=B8=D0=B8 =D0=9B=D0=A3=D0=98=D0=94=D0=96=D0=98
+</span>
+</td>
+</tr>
+=
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</=
+tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"=
+padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"p=
+adding:5px 0 0;background:#6339f5;background:-moz-linear-gradient(left, #63=
+39f5 0%, #f84177 100%);background:-webkit-linear-gradient(left, #6339f5 0%,=
+#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#f84177 100%);=
+line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table=
+>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>=
+
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-size:=
+20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">
+=D0=9B=
+=D0=A3=D0=98=D0=94=D0=96=D0=98 =D0=B2=C2=A0=D0=A1=D0=BE=D0=B2=D0=B5=D1=
+=82=D1=81=D0=BA=D0=BE=D0=BC =D1=80=D0=B0=D0=B9=D0=BE=D0=BD=D0=B5
+</span>=
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width:100%; max-width:320p=
+x;border-collapse:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr>=
+
+<td>
+<div style=3D"border: 1px solid #e0e2e8;border-radius: 6px;">
+<=
+table cellpadding=3D"16" cellspacing=3D"0" width=3D"100%" style=3D"width:10=
+0%;border-collapse:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr =
+valign=3D"top">
+<td width=3D"100%">
+<span style=3D"font-size:16px;line-=
+height:28px;color:#2c2d36;">=D0=9F=D0=BE=D0=B7=D0=B8=D1=86=D0=B8=D0=B8</spa=
+n>
+<br>
+<span style=3D"font-size:13px;line-height:20px;color:#2c2d36;">=
+=D0=92 =D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE =D0=B7=D0=B0=D0=
+=BF=D1=80=D0=BE=D1=81=D1=83: =C2=AB=D0=A6=D0=B5=D0=BD=D1=82=D1=80=D1=8B =
+=D0=BA=D0=BE=D1=81=D0=BC=D0=B5=D1=82=D0=BE=D0=BB=D0=BE=D0=B3=D0=B8=D0=B8 =
+=D0=B2=C2=A0=D0=9C=D0=B0=D1=85=D0=B0=D1=87=D0=BA=D0=B0=D0=BB=D0=B5=C2=BB</s=
+pan>
+</td>
+<td align=3D"right" nowrap><span style=3D"font-size:16px;lin=
+e-height:24px;color:#40cb3f;white-space:nowrap;">+=E2=80=8913</span></td>=
+
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
+<td height=3D"12" sty=
+le=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<=
+/table>
+<div style=3D"position: relative;border: 1px solid #e0e2e8;border=
+-radius: 6px; max-width: 320px;">
+<table cellpadding=3D"0" cellspacing=3D=
+"0" width=3D"100%" style=3D"width:100%;border-collapse:collapse;" border=3D=
+"0" class=3D"adaptive_table">
+<tr>
+<td height=3D"16" colspan=3D"5" styl=
+e=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<t=
+r>
+<td width=3D"16"></td>
+<td width=3D"266">
+<span style=3D"font-size=
+:16px;line-height:24px;color:#2c2d36;">=D0=9F=D0=BE=D0=BA=D0=B0=D0=B7=D1=
+=8B</span>
+</td>
+<td width=3D"13"></td>
+<td align=3D"right">
+<span =
+style=3D"font-size:16px;line-height:24px;color:#2c2d36;white-space:nowrap;"=
+>0</span>
+</td>
+<td width=3D"16"></td>
+</tr>
+<tr>
+<td height=3D"1=
+6" align=3D"center" colspan=3D"2" style=3D"line-height:0;"><div style=3D"li=
+ne-height:0;"></div></td>
+<td height=3D"16" align=3D"center" style=3D"lin=
+e-height:0;">
+<div style=3D"line-height:0; display: inline-block; width: =
+13px; height:16px; background: url('https://example.test/images/arrow-down-gray.=
+png') #fff top center no-repeat;"></div>
+</td>
+<td height=3D"16" align=
+=3D"center" colspan=3D"2" style=3D"line-height:0;"><div style=3D"line-heigh=
+t:0;"></div></td>
+</tr>
+<tr>
+<td height=3D"16" align=3D"center" colsp=
+an=3D"2" style=3D"line-height:0;border-top: 1px solid #e0e2e8;"><div style=
+=3D"line-height:0;"></div></td>
+<td height=3D"16" align=3D"center" style=
+=3D"line-height:0;">
+<div style=3D"line-height:0; display: inline-block; =
+width: 13px; height:16px; background: url('https://example.test/images/arrow-dow=
+n-gray.png') #fff bottom center no-repeat;"></div>
+</td>
+<td height=3D"=
+16" align=3D"center" colspan=3D"2" style=3D"line-height:0;border-top: 1px s=
+olid #e0e2e8;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<tr>
+<=
+td width=3D"16"></td>
+<td width=3D"">
+<span style=3D"font-size:16px;lin=
+e-height:24px;color:#2c2d36;">=D0=A3=D0=BD=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=
+=D0=BD=D1=8B=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=89=D0=B5=D0=BD=D0=B8=D1=
+=8F</span>
+</td>
+<td width=3D"13"></td>
+<td align=3D"right">
+<span =
+style=3D"font-size:16px;line-height:24px;color:#2c2d36;white-space:nowrap;"=
+>0</span>
+</td>
+<td width=3D"16"></td>
+</tr>
+<tr>
+<td height=3D"1=
+6" colspan=3D"5" style=3D"line-height:0;"><div style=3D"line-height:0;"></d=
+iv></td>
+</tr>
+</table>
+</div>
+<br>
+</td></tr>
+<tr>
+<td>
+<t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;"=
+>
+<a href=3D"https://example.test/r/698c8f09250d7d5e340635a4/e6ea95fc765d3=
+65ce222706b5265a1e5/" style=3D"background-color:#6339f5;border:1px solid #6=
+339f5;border-radius:4px;color:#ffffff;display:block;display:inline-block;fo=
+nt-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:normal;text=
+-align:center;text-decoration:none;line-height:24px;padding:8px 25px;-webki=
+t-text-size-adjust:none;" target=3D"_blank">
+=C2=A0=C2=A0=D0=9F=D0=BE=
+=D0=B4=D1=80=D0=BE=D0=B1=D0=BD=D0=B5=D0=B5 =E2=80=94 =D0=B2 =D0=BB=D0=B8=
+=D1=87=D0=BD=D0=BE=D0=BC =D0=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82=D0=
+=B5=C2=A0=C2=A0
+</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td=
+><br></td></tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<=
+td style=3D"padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cells=
+pacing=3D"0" width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<t=
+d style=3D"padding:5px 0 0;background:#6339f5;background:-moz-linear-gradie=
+nt(left, #6339f5 0%, #f84177 100%);background:-webkit-linear-gradient(left,=
+ #6339f5 0%,#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#f=
+84177 100%);line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</t=
+r>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpaddi=
+ng=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse=
+;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;=
+font-size:20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=9A=D0=B0=D0=BA =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C =
+=D0=BF=D0=BE=D0=BA=D0=B0=D0=B7=D0=B0=D1=82=D0=B5=D0=BB=D0=B8 =D1=83=C2=
+=A0=D0=B1=D1=8C=D1=8E=D1=82=D0=B8-=D1=81=D1=82=D1=83=D0=B4=D0=B8=D0=B8 =
+=D0=9B=D0=A3=D0=98=D0=94=D0=96=D0=98:
+</span>
+</td>
+</tr>
+</table>=
+
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+=
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-size:16p=
+x;line-height:23px;font-family:Arial,Helvetica,sans-serif;">
+=D0=94=D0=
+=BE=D0=B1=D0=B0=D0=B2=D1=8C=D1=82=D0=B5 =D1=84=D0=BE=D1=82=D0=BE=D0=B3=
+=D1=80=D0=B0=D1=84=D0=B8=D0=B8 =D0=B7=D0=B0=D0=B2=D0=B5=D0=B4=D0=B5=D0=
+=BD=D0=B8=D1=8F <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"=C2=BB100%=C2=BB" style=3D"=C2=BBborder-collapse:collapse;=C2=BB">
+=
+<tr>
+<td valign=3D"top" class=3D"article_img" style=3D"padding:10px 0;">=
+
+<p style=3D"line-height:0;margin:0;">
+<img src=3D"https://doc.example.test/=
+fE20dQf-UmGDxGruyTFJKw/a/3/5c923b03c4f77e0302667d75_5c924f846d91d.png" styl=
+e=3D"border-radius: 4px;max-width:560px;width: 100%;">
+</p>
+</td>
+</t=
+r>
+</table>
+</span>
+</td>
+</tr>
+</table>
+<table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:c=
+ollapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;">
+<a href=3D"https:=
+//example.test/r/698c8f09250d7d5e340635a5/915c39bdc9fda0cc5c1f5e5c390fc05c/"=
+ style=3D"background-color:#6339f5;border:1px solid #6339f5;border-radius:4=
+px;color:#ffffff;display:block;display:inline-block;font-family:Arial,Helve=
+tica,sans-serif;font-size:20px;font-weight:normal;text-align:center;text-de=
+coration:none;line-height:24px;padding:8px 25px;-webkit-text-size-adjust:no=
+ne;" target=3D"_blank">
+=D0=94=D0=BE=D0=B1=D0=B0=D0=B2=D0=B8=D1=82=D1=
+=8C
+</a>
+</td>
+</tr>
+</table>
+<table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+=
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333;font-s=
+ize:16px;line-height:23px;font-family:Arial,Helvetica,sans-serif;">
+=
+=D0=9F=D0=BE=D0=BC=D0=B8=D0=BC=D0=BE =D1=8D=D1=82=D0=BE=D0=B3=D0=BE, =D0=
+=BF=D0=BE=D0=B4=D0=BD=D1=8F=D1=82=D1=8C=D1=81=D1=8F =D0=B2=D1=8B=D1=88=
+=D0=B5 =D0=B2=C2=A0=D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE=D0=
+=BC=D0=BE=D0=B3=D1=83=D1=82:<br>
+=E2=80=94 <a href=3D"https://example.test=
+/r/698c8f09250d7d5e340635a6/38670a53385368a7e3d9d0d72f95cf84/" target=3D"_b=
+lank" style=3D"color:#6339f5;text-decoration:none">=D0=97=D0=B0=D0=B3=D1=
+=80=D1=83=D0=B6=D0=B5=D0=BD=D0=BD=D1=8B=D0=B9 =D0=BF=D1=80=D0=B0=D0=B9=
+=D1=81-=D0=BB=D0=B8=D1=81=D1=82</a><br>
+=E2=80=94 <a href=3D"https://zoon=
+.ru/r/698c8f09250d7d5e340635a7/31b50d525376cf52f606b2f65e698296/" targe=
+t=3D"_blank" style=3D"color:#6339f5;text-decoration:none">=D0=A3=D0=BD=
+=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=D0=BD=D0=BE=D0=B5 =D0=BE=D0=BF=D0=B8=D1=
+=81=D0=B0=D0=BD=D0=B8=D0=B5 =D0=B2=D0=B0=D1=88=D0=B5=D0=B3=D0=BE =D0=B7=
+=D0=B0=D0=B2=D0=B5=D0=B4=D0=B5=D0=BD=D0=B8=D1=8F</a><br>
+</span>
+</td>=
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>=
+
+</td>
+</tr>
+<!-- offset -->
+<tr>
+<td height=3D"30" style=3D"line=
+-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<!-- offset=
+ -->
+<!-- end newbody -->
+<!-- footer -->
+<tr>
+<td>
+<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse:collaps=
+e;">
+<tr>
+<td style=3D"padding:20px 0;border-top:1px solid #e2e2e6;">=
+
+<span style=3D"color:#333333;font-size:16px;line-height:25px;font-family=
+:Arial,Helvetica,sans-serif;text-decoration:none;">=D0=92=D1=8B =D0=BF=
+=D0=BE=D0=BB=D1=83=D1=87=D0=B8=D0=BB=D0=B8 =D1=8D=D1=82=D0=BE =D0=BF=D0=
+=B8=D1=81=D1=8C=D0=BC=D0=BE, =D0=BF=D0=BE=D1=82=D0=BE=D0=BC=D1=83 =D1=87=
+=D1=82=D0=BE =D0=B8=D0=BC=D0=B5=D0=B5=D1=82=D0=B5 =D0=B4=D0=BE=D1=81=D1=
+=82=D1=83=D0=BF =D0=B2 <a href=3D"https://example.test/r/698c8f09250d7d5e340=
+635a8/4cfc43d5ff72518ea78d1c93b8b73227/" style=3D"color:#6339f5;text-decora=
+tion:none;" target=3D"_blank">=D0=9B=D0=B8=D1=87=D0=BD=D1=8B=D0=B9 =D0=
+=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82</a>.=09<br><a href=3D"https://zoon.=
+ru/r/698c8f09250d7d5e340635a3/c2175e73e804843b8124dc80bf131c45/" style=
+=3D"color:#6339f5;text-decoration:none;" target=3D"_blank">=D0=9D=D0=B5 =
+=D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D1=82=D1=8C =D0=B1=D0=BE=D0=BB=D1=
+=8C=D1=88=D0=B5 =D1=82=D0=B0=D0=BA=D0=B8=D1=85 =D0=BF=D0=B8=D1=81=D0=B5=
+=D0=BC</a>.</span>=09</td>
+</tr>
+<tr>
+<td>
+<span style=3D"color:#bb=
+bcc4;font-size:16px;line-height:25px;font-family:Arial,Helvetica,sans-serif=
+;text-decoration:none;">=D0=A1 =D1=83=D0=B2=D0=B0=D0=B6=D0=B5=D0=BD=D0=
+=B8=D0=B5=D0=BC, =D0=BA=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0 Zoon.ru</span>=
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"30" styl=
+e=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<!=
+-- end footer -->
+<tr>
+<td><img src=3D"https://example.test/i/698c8f0925=
+0d7d5e340635a2/default.png" style=3D"display:none" width=3D"1" height=3D"1"=
+ border=3D"0"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>=
+
+</tr>
+</table>
+</body>
+</html>
+
+--1770819338-eximdsn-1270251040--

@@ -1,0 +1,146 @@
+Delivered-To: postmaster@example.test
+Received-SPF: none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @) client-ip=192.0.2.100; envelope-from=@; helo=example.test;
+Authentication-Results: example.test;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=fail(p=reject dis=none)  example.test=example.test
+Return-Path: <>
+Received: from example.test (example.test [192.0.2.100]) by example.test
+	with SMTPS id 1770804998343983.6754382095155; Wed, 11 Feb 2026 02:16:38 -0800 (PST)
+Received: from van4enc4 by example.test with local (Exim 4.97.1)
+	id 1vq7Gu-000000006i2-1N4x
+	for postmaster@example.test;
+	Wed, 11 Feb 2026 13:16:36 +0300
+Message-ID: <dovecot-1770804996-323311-0@example.test>
+Date: Wed, 11 Feb 2026 13:16:36 +0300
+From: Mail Delivery Subsystem <postmaster@example.test>
+To: <postmaster@example.test>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="25793/example.test"
+Subject: Rejected: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=? =?utf-8?Q?_=D1=8F=D0...
+Auto-Submitted: auto-replied (rejected)
+Precedence: bulk
+Sender: <van4enc4@example.test>
+X-ZohoMail-Owner: <dovecot-1770804996-323311-0@example.test>+zmo_0_
+
+This is a MIME-encapsulated message
+
+--25793/example.test
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+
+Your message to <recipient.bounce3@example.test> was automatically rejected:
+Quota exceeded (mailbox for user is full)
+--25793/example.test
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; example.test
+Final-Recipient: rfc822; recipient.bounce3@example.test
+Action: failed
+Status: 5.2.2
+
+--25793/example.test
+Content-Type: message/rfc822
+
+Return-path: <postmaster@example.test>
+Envelope-to: recipient.bounce3@example.test
+Delivery-date: Wed, 11 Feb 2026 13:16:36 +0300
+Authentication-Results: dkim=pass, header.i=@example.test
+Received: from example.test ([192.0.2.100])
+	by example.test with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <postmaster@example.test>)
+	id 1vq7Gt-000000006h7-1fyI
+	for recipient.bounce3@example.test;
+	Wed, 11 Feb 2026 13:16:36 +0300
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test;
+	s=z01; h=Content-Transfer-Encoding:Content-Type:Date:MIME-Version:To:Subject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=4AtxG3JJlNFvIOsLR4PGpblV/QphXHFYyH6xzAAhUo4=; b=tcYAGk6Vfns1BvYG0/PaepC/d4
+	UvftvIdRjBSrMhN4i6Y10EfYcUKnOdGYwGemPgN3Q/VKpxrcxcxxMJDzpwdUx5RnUd+X+F2wAxnzG
+	S5mr5hM9icOIVCFUpWyHQdkzj6gPX17rUXFpmp0mnOpVTdVa5r/35TGPh5Rk8ZbFi0PY=;
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+ <info@example.test>
+Message-ID: <698c5702cd52e72a870b4eec-1aa595ec6ef61e0793bfdef2133f8f54@example.test>
+List-Unsubscribe: <https://example.test/mlp/r/698c5702cd52e72a870b4eed/7ce4ae9fe90021c4766df8af4285b0c7/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A?= SampleOrg
+To: recipient.bounce3@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 13:16:34 +0300
+Content-Transfer-Encoding: quoted-printable
+X-Spam_score: -2.0
+X-Spam_score_int: -19
+X-Spam_bar: --
+X-Spam_report: Spam detection software, running on the system "example.test",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ the administrator of that system for details.
+ 
+ Content preview:  Суммарная статистика и несколько
+    рекомендаций, как её улучшить. Отчет за�
+   январь по� статистике посещений интернет-магазина
+    SampleOrg SampleOrg в� Огородном проезде [...] 
+ 
+ Content analysis details:   (-2.0 points, 5.0 required)
+ 
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 RCVD_IN_ZEN_BLOCKED_OPENDNS RBL: ADMINISTRATOR NOTICE: The query to
+                             example.test was blocked due to usage of an
+                              open resolver. See
+                             https://example.test/returnc/pub/
+                             [192.0.2.100 listed in example.test]
+  0.0 RCVD_IN_DNSWL_BLOCKED  RBL: ADMINISTRATOR NOTICE: The query to DNSWL
+                             was blocked.  See
+                             http://example.test/spamassassin/DnsBlocklists#DnsBlocklists-dnsbl-block
+                              for more information.
+                             [192.0.2.100 listed in example.test]
+  0.0 URIBL_DBL_BLOCKED_OPENDNS ADMINISTRATOR NOTICE: The query to
+                             example.test was blocked due to usage of an
+                              open resolver. See
+                             https://example.test/returnc/pub/
+                             [URIs: example.test]
+  0.0 URIBL_ZEN_BLOCKED_OPENDNS ADMINISTRATOR NOTICE: The query to
+                             example.test was blocked due to usage of an
+                              open resolver. See
+                             https://example.test/returnc/pub/
+                             [URIs: example.test]
+ -0.0 SPF_HELO_PASS          SPF: HELO matches SPF record
+  0.0 RCVD_IN_VALIDITY_SAFE_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://example.test/hc/en-us/articles/20961730681243
+                              for more information.
+                        [192.0.2.100 listed in example.test]
+  0.0 RCVD_IN_VALIDITY_RPBL_BLOCKED RBL: ADMINISTRATOR NOTICE: The query to
+                              Validity was blocked.  See
+                             https://example.test/hc/en-us/articles/20961730681243
+                              for more information.
+                           [192.0.2.100 listed in example.test]
+ -0.0 USER_IN_WELCOMELIST_TO User is listed in 'welcomelist_to'
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.0 HTML_FONT_LOW_CONTRAST BODY: HTML font color similar or identical to
+                             background
+  0.1 MIME_HTML_ONLY         BODY: Message only has text/html MIME parts
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from author's
+                             domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily valid
+ -1.0 USER_IN_WHITELIST_TO   DEPRECATED: See USER_IN_WELCOMELIST_TO
+ -1.0 MAILING_LIST_MULTI     Multiple indicators imply a widely-seen list
+                             manager
+
+
+
+--25793/example.test--

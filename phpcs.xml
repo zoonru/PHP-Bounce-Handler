@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset name="ZoonBounceHandler">
+	<description>ZOON PHP coding standards for BounceHandler</description>
+
+	<file>src</file>
+
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<arg name="extensions" value="php"/>
+
+	<!-- PSR-12 as base -->
+	<rule ref="PSR12">
+		<!-- K&R braces for classes/methods (Egyptian style) -->
+		<exclude name="PSR12.Classes.OpeningBraceSpace"/>
+		<exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine"/>
+		<exclude name="PSR2.Functions.FunctionDeclaration.BraceOnSameLine"/>
+		<!-- We use K&R everywhere -->
+		<exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"/>
+	</rule>
+
+	<!-- K&R braces: opening brace on same line for classes -->
+	<rule ref="Generic.Classes.OpeningBraceSameLine"/>
+
+	<!-- K&R braces: opening brace on same line for functions -->
+	<rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+
+	<!-- Single quotes preferred -->
+	<rule ref="Squiz.Strings.DoubleQuoteUsage">
+		<exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
+	</rule>
+
+	<!-- No inline control structures (if/for/foreach/while must use braces) -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+
+	<!-- Trailing commas in multiline arrays -->
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+
+	<!-- No horizontal alignment -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+
+	<!-- Line length -->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="200"/>
+			<property name="absoluteLineLimit" value="250"/>
+		</properties>
+	</rule>
+</ruleset>

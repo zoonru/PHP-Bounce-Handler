@@ -1,0 +1,943 @@
+Delivered-To: postmaster@example.test
+Received-SPF: none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @) client-ip=192.0.2.100; envelope-from=@; helo=example.test;
+Authentication-Results: example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass(p=none dis=none)  example.test=example.test
+ARC-Seal: i=1; a=rsa-sha256; t=1770819207; cv=none; 
+	d=example.test; s=zohoarc; 
+	b=TyXAFVdsGMXlzNpxJV0b/pW4F/2fOUeVbfxx4S9qPo/JIskiSfOf/swADNSmpVrgplQ31XsT6iYAOe+kVBszUErJTJQw6V2/JPWl/7NAUCNW3qI8E5++PlM+fOtlJ4zMQ2RghxTmc1GbuHZ0WDmVSwa2tG6itrNktG0XezX+ygY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=zohoarc; 
+	t=1770819207; h=Content-Type:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To:Cc; 
+	bh=hjMIzK4KU4ZjE8o1MRCnhsxi6KxvcuB5BNyL/aoyZsE=; 
+	b=GUS28cxrgNUTdWE+HpfvyRD5jpCDFgSdqkp9q6ms92bSr/VuURoSp82r/zk225/lmfIdP1KqyQKzfw1biVTyHMik/rG4FdmQA32RXTzfhxzek/vxp9vMy9uIMLSskT8kB0QRgSL+5Ty88ONDSFfsz4yrHUKCreOerXA6GLFeevo=
+ARC-Authentication-Results: i=1; example.test;
+	dkim=pass;
+	spf=none (example.test: 192.0.2.100 is neither permitted nor denied by domain of @)  example.test=@;
+	dmarc=pass example.test=<postmaster@example.test> (p=none dis=none)
+Return-Path: <>
+Received: from example.test (example.test [192.0.2.100]) by example.test
+	with SMTPS id 1770819206562435.86037846957925; Wed, 11 Feb 2026 06:13:26 -0800 (PST)
+Received: from example.test (localhost [192.0.2.100])
+	by example.test (Postfix) with ESMTP id 2E28C220035
+	for <postmaster@example.test>; Wed, 11 Feb 2026 17:13:21 +0300 (MSK)
+Received: from SRV-SI (unknown [192.0.2.100])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by example.test (Postfix) with ESMTPS
+	for <postmaster@example.test>; Wed, 11 Feb 2026 17:13:20 +0300 (MSK)
+DKIM-Filter: OpenDKIM Filter v2.11.0 example.test 2E28C220035
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=example.test; s=dkim;
+	t=1770819201; bh=hjMIzK4KU4ZjE8o1MRCnhsxi6KxvcuB5BNyL/aoyZsE=;
+	h=MIME-Version:From:To:Date:Content-Type:Message-ID:Subject:From;
+	b=ZVOhxl6mELtPEWy+/9Skw46wEPugAJLDBQK/OfJaSldQirmhc55DbNBCdRpEVcsNE
+	 nk4klwvahX9nHf83paLNRuLRQ2BaNo7s3XVAqbT+3W0N6zQffjq3lGt9igZfw0El5F
+	 m/7RC45Xsb/QlATzapZh2C2R2nbGGbr0IbZvKJQ9GVA283KvaCq13Oa5lYlzwlzY5u
+	 cmVxU0hrYY393xHgklAtx2hxPGIvVwby0hEq65x5ANd0GsO/+3OTbrc22SSbNM7bMZ
+	 J2KEjQvVmFgdlCUfllgdGdjrPkj2gKoInwANebtHKyPptZsMBV1SHBsUs34wAdE/r/
+	 2IgBJfoprY7iQ==
+X-CHECKED: 1
+X-CHECKED-RELAY-ID: f1212319ededa75aaa2ca255a94c3d349cf3304d
+X-Cache: 20260211_171316565_00003052
+X-MS-Exchange-Organization-AuthAs: Partner
+MIME-Version: 1.0
+From: <postmaster@example.test>
+To: <postmaster@example.test>
+Date: Wed, 11 Feb 2026 17:13:16 +0300
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="006d1d26-1277-4b17-af27-a47fdc766190"
+X-MS-Exchange-Message-Is-Ndr: 
+Content-Language: ru-RU
+Message-ID: <76dfae26-7617-46ad-9601-2b9c07e05476@example.test>
+In-Reply-To: <698c8e784f907054230f6d41-d224af40dbe4b8a093aa71325254aa13@example.test>
+References: <698c8e784f907054230f6d41-d224af40dbe4b8a093aa71325254aa13@example.test>
+Subject: =?koi8-r?B?7sUg1cTBxdTT0SDEz9PUwdfJ1Ng6IO/U3sXUINrBINHO18HS2Dog9MXIy8/N?=
+ =?koi8-r?B?0MzFy9M=?=
+Auto-Submitted: auto-replied
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 200401 [Feb 11 2026]
+X-KSMG-AntiSpam-Version: 192.0.2.100
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: formal
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dkim=none
+X-KSMG-AntiSpam-Info: LuaCore: 87 0.3.87 7430d8ffafccd8879e1d8370e5b501352446c2ba, {Tracking_phishing_log_reg_60_70}, {ctype_rfc_vio_soft_silent}, {Tracking_msgid_8}, {Tracking_uf_ne_domains}, {Tracking_from_domain_doesnt_match_to}, {formal_reports}, example.test:7.1.1;example.test:5.0.1,7.1.1;example.test:5.0.1,7.1.1;example.test:7.1.1;192.0.2.100:7.1.2, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, FromAlignment: n, {DNS response errors}
+X-MS-Exchange-Organization-SCL: -1
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-LinksScanning: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.0.6478, bases: 2026/02/11 09:49:00 #28216014
+X-KSMG-AntiVirus-Status: Clean, skipped
+X-ZohoMail-DKIM: pass (identity @example.test)
+X-ZohoMail-Owner: <76dfae26-7617-46ad-9601-2b9c07e05476@example.test>+zmo_0_
+
+--006d1d26-1277-4b17-af27-a47fdc766190
+Content-Type: multipart/alternative; differences=Content-Type;
+	boundary="ed3576d5-8d63-4e40-a16c-07efc11467a6"
+
+--ed3576d5-8d63-4e40-a16c-07efc11467a6
+Content-Type: text/plain; charset="koi8-r"
+Content-Transfer-Encoding: quoted-printable
+
+=EE=C5 =D5=C4=C1=CC=CF=D3=D8 =D7=D9=D0=CF=CC=CE=C9=D4=D8 =C4=CF=D3=D4=C1=D7=
+=CB=D5 =D3=CC=C5=C4=D5=C0=DD=C9=CD =D0=CF=CC=D5=DE=C1=D4=C5=CC=D1=CD =C9=CC=
+=C9 =C7=D2=D5=D0=D0=C1=CD:
+
+platonov.i@example.test<mailto:platonov.i@example.test>
+=EE=C5 =D5=C4=C1=CC=CF=D3=D8 =CE=C1=CA=D4=C9 =D7=D7=C5=C4=C5=CE=CE=D9=CA =
+=DC=CC=C5=CB=D4=D2=CF=CE=CE=D9=CA =C1=C4=D2=C5=D3. =F0=D2=CF=D7=C5=D2=D8=D4=
+=C5 =C1=C4=D2=C5=D3 =D0=CF=CC=D5=DE=C1=D4=C5=CC=D1 =C9 =D0=CF=D0=D2=CF=C2=
+=D5=CA=D4=C5 =CF=D4=D0=D2=C1=D7=C9=D4=D8 =D3=CF=CF=C2=DD=C5=CE=C9=C5 =C5=DD=
+=C5 =D2=C1=DA. =E5=D3=CC=C9 =D0=D2=CF=C2=CC=C5=CD=C1 =D7=CF=DA=CE=C9=CB=CE=
+=C5=D4 =D3=CE=CF=D7=C1, =CF=C2=D2=C1=D4=C9=D4=C5=D3=D8 =CB =D3=D7=CF=C5=CD=
+=D5 =C1=C4=CD=C9=CE=C9=D3=D4=D2=C1=D4=CF=D2=D5 =DC=CC=C5=CB=D4=D2=CF=CE=CE=
+=CF=CA =D0=CF=DE=D4=D9.
+
+
+
+
+
+
+
+
+=E4=C9=C1=C7=CE=CF=D3=D4=C9=DE=C5=D3=CB=C9=C5 =D3=D7=C5=C4=C5=CE=C9=D1 =C4=
+=CC=D1 =C1=C4=CD=C9=CE=C9=D3=D4=D2=C1=D4=CF=D2=CF=D7:
+
+=E6=CF=D2=CD=C9=D2=D5=C0=DD=C9=CA =D3=C5=D2=D7=C5=D2: example.test=
+al
+
+platonov.i@example.test
+Remote Server returned '550 5.1.10 example.test; Recipien=
+t not found by SMTP address lookup'
+
+=E9=D3=C8=CF=C4=CE=D9=C5 =DA=C1=C7=CF=CC=CF=D7=CB=C9 =D3=CF=CF=C2=DD=C5=CE=
+=C9=D1:
+
+Received: from example.test (192.0.2.100) by
+ example.test (192.0.2.100) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Wed, 11 Feb 2026 17:13:16 +0300
+Received: from [192.0.2.100] (192.0.2.100) by example.test
+ (192.0.2.100) with Microsoft SMTP Server id 15.1.2507.34 via Frontend
+ Transport; Wed, 11 Feb 2026 17:13:16 +0300
+Received: by ct6txb8p5exgpscq for {platonov.i example.test}; Wed, 11 Feb 2=
+026 14:13:16 +0000
+Received: from example.test (localhost [192.0.2.100])
+        by example.test (Postfix) with ESMTP id 9EF3D220035
+        for <platonov.i@example.test>; Wed, 11 Feb 2026 17:13:14 +0300 (MS=
+K)
+Received: from example.test (example.test [192.0.2.100])
+        (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bit=
+s))
+        (No client certificate requested)
+        by example.test (Postfix) with ESMTPS
+        for <platonov.i@example.test>; Wed, 11 Feb 2026 17:13:10 +0300 (MS=
+K)
+DKIM-Signature: v=3D1; a=3Drsa-sha256; q=3Ddns/txt; c=3Drelaxed/relaxed; d=
+=example.test;
+        s=3Dz01; h=3DContent-Transfer-Encoding:Content-Type:Date:MIME-Versi=
+on:To:Subject:
+        List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Send=
+er:
+        Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+        Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:Ref=
+erences:
+        List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+        bh=3DRZ2a5Y8JtJgwl7oSsStv2GquKxgaAmB74xo9fSmA6lc=3D; b=3DCby6mqg7eq=
+C0dR8gObd/hq7Bvg
+        zhaiocKhfHfiSC07xmkt8f0i8MGXNpxq6lo9LlwfS0WNl4NzuLAIj5a9VxeDsdruBsY=
+tQJL2fQDDy
+        liwrlY69yaN/2AvMFsCJ8EsgADv2KPUsPuNsGbry6s7NPEm4qzL1QKiHP4odjHoh50N=
+Y=3D;
+Sender: =3D?utf-8?Q?=3DD0=3D9A=3DD0=3DBE=3DD0=3DBC=3DD0=3DB0=3DD0=3DBD=3DD0=
+=3DB4=3DD0=3DB0_Zoon=3D2ERu?=3D
+        <info@example.test>
+From: =3D?utf-8?Q?=3DD0=3D9A=3DD0=3DBE=3DD0=3DBC=3DD0=3DB0=3DD0=3DBD=3DD0=
+=3DB4=3DD0=3DB0_Zoon=3D2ERu?=3D
+        <info@example.test>
+Message-ID: <698c8e784f907054230f6d41-d224af40dbe4b8a093aa71325254aa13@zoon=
+.ru>
+List-Unsubscribe: <https://example.test/r/698c8e784f907054230f6d42/0d4ffcf46=
+660604c1d72222f23ea1021/>
+List-Unsubscribe-Post: List-Unsubscribe=3DOne-Click
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =3D?utf-8?Q?=3DD0=3D9E=3DD1=3D82=3DD1=3D87=3DD0=3DB5=3DD1=3D82_=3D=
+D0=3DB7=3DD0=3DB0?=3D
+ =3D?utf-8?Q?_=3DD1=3D8F=3DD0=3DBD=3DD0=3DB2=3DD0=3DB0=3DD1=3D80=3DD1=3D8C=
+=3D3A_=3DD0=3DA2=3DD0=3DB5=3DD1=3D85?=3D
+ =3D?utf-8?Q?=3DD0=3DBA=3DD0=3DBE=3DD0=3DBC=3DD0=3DBF=3DD0=3DBB=3DD0=3DB5=
+=3DD0=3DBA=3DD1=3D81?=3D
+To: <platonov.i@example.test>
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 17:13:12 +0300
+Content-Type: text/html; charset=3D"utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 200401 [Feb 11 2026]
+X-KSMG-AntiSpam-Version: 192.0.2.100
+X-KSMG-AntiSpam-Envelope-From: postmaster@example.test
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dmarc=3Dpass example.test=example.test policy=3Dquarantin=
+e;spf=3Dpass example.test=example.test;dkim=3Dpass header.d=example.test
+X-KSMG-AntiSpam-Info: LuaCore: 87 0.3.87 7430d8ffafccd8879e1d8370e5b5013524=
+46c2ba, {rep_avail}, {dkim_exist_silent}, {Tracking_list_headers}, {Trackin=
+g_marketers}, {Tracking_from_domain_doesnt_match_to}, example.test:5.0.1,7.=
+1.1;example.test:5.0.1,7.1.1;example.test:7.1.1;example.test=
+.ru:5.0.1,7.1.1;192.0.2.100:7.1.2;192.0.2.100:7.1.2, {Tracking_white_he=
+lo}, FromAlignment: s, ApMailHostAddress: 192.0.2.100
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-LinksScanning: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.0.6478, bases:=
+ 2026/02/11 09:49:00 #28216014
+X-KSMG-AntiVirus-Status: Clean, skipped
+Return-Path: postmaster@example.test
+
+
+--ed3576d5-8d63-4e40-a16c-07efc11467a6
+Content-Type: text/html; charset="koi8-r"
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+<Head></head><body>
+<p><b><font color=3D"#000066" size=3D"3" face=3D"Arial">=EE=C5 =D5=C4=C1=CC=
+=CF=D3=D8 =D7=D9=D0=CF=CC=CE=C9=D4=D8 =C4=CF=D3=D4=C1=D7=CB=D5 =D3=CC=C5=C4=
+=D5=C0=DD=C9=CD =D0=CF=CC=D5=DE=C1=D4=C5=CC=D1=CD =C9=CC=C9 =C7=D2=D5=D0=D0=
+=C1=CD:</font></b></p>
+<font color=3D"#000000" size=3D"2" face=3D"Tahoma"><p><a href=3D"mailto:pla=
+tonov.i@example.test">platonov.i@example.test</a><br>
+</font>
+<font color=3D"#000000" size=3D"3" face=3D"Arial">=EE=C5 =D5=C4=C1=CC=CF=D3=
+=D8 =CE=C1=CA=D4=C9 =D7=D7=C5=C4=C5=CE=CE=D9=CA =DC=CC=C5=CB=D4=D2=CF=CE=CE=
+=D9=CA =C1=C4=D2=C5=D3. =F0=D2=CF=D7=C5=D2=D8=D4=C5 =C1=C4=D2=C5=D3 =D0=CF=
+=CC=D5=DE=C1=D4=C5=CC=D1 =C9 =D0=CF=D0=D2=CF=C2=D5=CA=D4=C5 =CF=D4=D0=D2=C1=
+=D7=C9=D4=D8 =D3=CF=CF=C2=DD=C5=CE=C9=C5 =C5=DD=C5 =D2=C1=DA. =E5=D3=CC=C9 =
+=D0=D2=CF=C2=CC=C5=CD=C1 =D7=CF=DA=CE=C9=CB=CE=C5=D4 =D3=CE=CF=D7=C1, =CF=
+=C2=D2=C1=D4=C9=D4=C5=D3=D8 =CB =D3=D7=CF=C5=CD=D5 =C1=C4=CD=C9=CE=C9=D3=D4=
+=D2=C1=D4=CF=D2=D5 =DC=CC=C5=CB=D4=D2=CF=CE=CE=CF=CA =D0=CF=DE=D4=D9.<br>
+</font>
+<font color=3D"#000000" size=3D"2" face=3D"Tahoma"><br>
+</p>
+</font>
+<br><br><br><br><br><br>
+<font color=3D"#808080" size=3D"2" face=3D"Tahoma"><p><b>=E4=C9=C1=C7=CE=CF=
+=D3=D4=C9=DE=C5=D3=CB=C9=C5 =D3=D7=C5=C4=C5=CE=C9=D1 =C4=CC=D1 =C1=C4=CD=C9=
+=CE=C9=D3=D4=D2=C1=D4=CF=D2=CF=D7:</b></p>
+<p>=E6=CF=D2=CD=C9=D2=D5=C0=DD=C9=CA =D3=C5=D2=D7=C5=D2: example.test.=
+local<br>
+</p>
+<p>platonov.i@example.test<br>
+Remote Server  returned '550 5.1.10 example.test; Recipie=
+nt not found by SMTP address lookup'<br>
+</p>
+<p>=E9=D3=C8=CF=C4=CE=D9=C5 =DA=C1=C7=CF=CC=CF=D7=CB=C9 =D3=CF=CF=C2=DD=C5=
+=CE=C9=D1:</p>
+<pre>Received: from example.test (192.0.2.100) by
+ example.test (192.0.2.100) with Microsoft SMTP Server
+ (version=3DTLS1_2, cipher=3DTLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Wed, 11 Feb 2026 17:13:16 +0300
+Received: from [192.0.2.100] (192.0.2.100) by example.test
+ (192.0.2.100) with Microsoft SMTP Server id 15.1.2507.34 via Frontend
+ Transport; Wed, 11 Feb 2026 17:13:16 +0300
+Received: by ct6txb8p5exgpscq for {platonov.i example.test}; Wed, 11 Feb 2=
+026 14:13:16 +0000
+Received: from example.test (localhost [192.0.2.100])
+	by example.test (Postfix) with ESMTP id 9EF3D220035
+	for &lt;platonov.i@example.test&gt;; Wed, 11 Feb 2026 17:13:14 +0300 (MSK=
+)
+Received: from example.test (example.test [192.0.2.100])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by example.test (Postfix) with ESMTPS
+	for &lt;platonov.i@example.test&gt;; Wed, 11 Feb 2026 17:13:10 +0300 (MSK=
+)
+DKIM-Signature: v=3D1; a=3Drsa-sha256; q=3Ddns/txt; c=3Drelaxed/relaxed; d=
+=example.test;
+	s=3Dz01; h=3DContent-Transfer-Encoding:Content-Type:Date:MIME-Version:To:S=
+ubject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References=
+:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=3DRZ2a5Y8JtJgwl7oSsStv2GquKxgaAmB74xo9fSmA6lc=3D; b=3DCby6mqg7eqC0dR8gO=
+bd/hq7Bvg
+	zhaiocKhfHfiSC07xmkt8f0i8MGXNpxq6lo9LlwfS0WNl4NzuLAIj5a9VxeDsdruBsYtQJL2fQ=
+DDy
+	liwrlY69yaN/2AvMFsCJ8EsgADv2KPUsPuNsGbry6s7NPEm4qzL1QKiHP4odjHoh50NY=3D;
+Sender: =3D?utf-8?Q?=3DD0=3D9A=3DD0=3DBE=3DD0=3DBC=3DD0=3DB0=3DD0=3DBD=3DD0=
+=3DB4=3DD0=3DB0_Zoon=3D2ERu?=3D
+	&lt;info@example.test&gt;
+From: =3D?utf-8?Q?=3DD0=3D9A=3DD0=3DBE=3DD0=3DBC=3DD0=3DB0=3DD0=3DBD=3DD0=
+=3DB4=3DD0=3DB0_Zoon=3D2ERu?=3D
+	&lt;info@example.test&gt;
+Message-ID: &lt;698c8e784f907054230f6d41-d224af40dbe4b8a093aa71325254aa13@z=
+example.test&gt;
+List-Unsubscribe: &lt;https://example.test/r/698c8e784f907054230f6d42/0d4ffc=
+f46660604c1d72222f23ea1021/&gt;
+List-Unsubscribe-Post: List-Unsubscribe=3DOne-Click
+List-ID: &lt;monthly_report.example.test=
+&gt;
+Precedence: bulk
+Subject: =3D?utf-8?Q?=3DD0=3D9E=3DD1=3D82=3DD1=3D87=3DD0=3DB5=3DD1=3D82_=3D=
+D0=3DB7=3DD0=3DB0?=3D
+ =3D?utf-8?Q?_=3DD1=3D8F=3DD0=3DBD=3DD0=3DB2=3DD0=3DB0=3DD1=3D80=3DD1=3D8C=
+=3D3A_=3DD0=3DA2=3DD0=3DB5=3DD1=3D85?=3D
+ =3D?utf-8?Q?=3DD0=3DBA=3DD0=3DBE=3DD0=3DBC=3DD0=3DBF=3DD0=3DBB=3DD0=3DB5=
+=3DD0=3DBA=3DD1=3D81?=3D
+To: &lt;platonov.i@example.test&gt;
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 17:13:12 +0300
+Content-Type: text/html; charset=3D&quot;utf-8&quot;
+Content-Transfer-Encoding: quoted-printable
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 200401 [Feb 11 2026]
+X-KSMG-AntiSpam-Version: 192.0.2.100
+X-KSMG-AntiSpam-Envelope-From: postmaster@example.test
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dmarc=3Dpass example.test=example.test policy=3Dquarantin=
+e;spf=3Dpass example.test=example.test;dkim=3Dpass header.d=example.test
+X-KSMG-AntiSpam-Info: LuaCore: 87 0.3.87 7430d8ffafccd8879e1d8370e5b5013524=
+46c2ba, {rep_avail}, {dkim_exist_silent}, {Tracking_list_headers}, {Trackin=
+g_marketers}, {Tracking_from_domain_doesnt_match_to}, example.test:5.0.1,7.=
+1.1;example.test:5.0.1,7.1.1;example.test:7.1.1;example.test=
+.ru:5.0.1,7.1.1;192.0.2.100:7.1.2;192.0.2.100:7.1.2, {Tracking_white_he=
+lo}, FromAlignment: s, ApMailHostAddress: 192.0.2.100
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-LinksScanning: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.0.6478, bases:=
+ 2026/02/11 09:49:00 #28216014
+X-KSMG-AntiVirus-Status: Clean, skipped
+Return-Path: postmaster@example.test
+</pre>
+</font>
+</body>
+</html>=
+
+--ed3576d5-8d63-4e40-a16c-07efc11467a6--
+
+--006d1d26-1277-4b17-af27-a47fdc766190
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns;example.test
+Received-From-MTA: dns;[192.0.2.100]
+Arrival-Date: Wed, 11 Feb 2026 14:13:16 +0000
+
+Final-Recipient: rfc822;platonov.i@example.test
+Action: failed
+Status: 5.1.10
+Diagnostic-Code: smtp;550 5.1.10 example.test; Recipient not found by SMTP address lookup
+
+
+--006d1d26-1277-4b17-af27-a47fdc766190
+Content-Type: message/rfc822
+
+Received: from example.test (192.0.2.100) by
+ example.test (192.0.2.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.34; Wed, 11 Feb 2026 17:13:16 +0300
+Received: from [192.0.2.100] (192.0.2.100) by example.test
+ (192.0.2.100) with Microsoft SMTP Server id 15.1.2507.34 via Frontend
+ Transport; Wed, 11 Feb 2026 17:13:16 +0300
+Received: by ct6txb8p5exgpscq for {platonov.i example.test}; Wed, 11 Feb 2026 14:13:16 +0000
+Received: from example.test (localhost [192.0.2.100])
+	by example.test (Postfix) with ESMTP id 9EF3D220035
+	for <platonov.i@example.test>; Wed, 11 Feb 2026 17:13:14 +0300 (MSK)
+Received: from example.test (example.test [192.0.2.100])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by example.test (Postfix) with ESMTPS
+	for <platonov.i@example.test>; Wed, 11 Feb 2026 17:13:10 +0300 (MSK)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=example.test;
+	s=z01; h=Content-Transfer-Encoding:Content-Type:Date:MIME-Version:To:Subject:
+	List-ID:List-Unsubscribe-Post:List-Unsubscribe:Message-ID:From:Sender:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Help:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=RZ2a5Y8JtJgwl7oSsStv2GquKxgaAmB74xo9fSmA6lc=; b=Cby6mqg7eqC0dR8gObd/hq7Bvg
+	zhaiocKhfHfiSC07xmkt8f0i8MGXNpxq6lo9LlwfS0WNl4NzuLAIj5a9VxeDsdruBsYtQJL2fQDDy
+	liwrlY69yaN/2AvMFsCJ8EsgADv2KPUsPuNsGbry6s7NPEm4qzL1QKiHP4odjHoh50NY=;
+Sender: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+	<info@example.test>
+From: =?utf-8?Q?=D0=9A=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0_Zoon=2ERu?=
+	<info@example.test>
+Message-ID: <698c8e784f907054230f6d41-d224af40dbe4b8a093aa71325254aa13@example.test>
+List-Unsubscribe: <https://example.test/r/698c8e784f907054230f6d42/0d4ffcf46660604c1d72222f23ea1021/>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+List-ID: <monthly_report.example.test>
+Precedence: bulk
+Subject: =?utf-8?Q?=D0=9E=D1=82=D1=87=D0=B5=D1=82_=D0=B7=D0=B0?=
+ =?utf-8?Q?_=D1=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C=3A_=D0=A2=D0=B5=D1=85?=
+ =?utf-8?Q?=D0=BA=D0=BE=D0=BC=D0=BF=D0=BB=D0=B5=D0=BA=D1=81?=
+To: <platonov.i@example.test>
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 17:13:12 +0300
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+X-KSMG-Rule-ID: 1
+X-KSMG-Message-Action: clean
+X-KSMG-AntiSpam-Lua-Profiles: 200401 [Feb 11 2026]
+X-KSMG-AntiSpam-Version: 192.0.2.100
+X-KSMG-AntiSpam-Envelope-From: postmaster@example.test
+X-KSMG-AntiSpam-Rate: 0
+X-KSMG-AntiSpam-Status: not_detected
+X-KSMG-AntiSpam-Method: none
+X-KSMG-AntiSpam-Auth: dmarc=pass example.test=example.test policy=quarantine;spf=pass example.test=example.test;dkim=pass header.d=example.test
+X-KSMG-AntiSpam-Info: LuaCore: 87 0.3.87 7430d8ffafccd8879e1d8370e5b501352446c2ba, {rep_avail}, {dkim_exist_silent}, {Tracking_list_headers}, {Tracking_marketers}, {Tracking_from_domain_doesnt_match_to}, example.test:5.0.1,7.1.1;example.test:5.0.1,7.1.1;example.test:7.1.1;example.test:5.0.1,7.1.1;192.0.2.100:7.1.2;192.0.2.100:7.1.2, {Tracking_white_helo}, FromAlignment: s, ApMailHostAddress: 192.0.2.100
+X-KSMG-AntiSpam-Interceptor-Info: scan successful
+X-KSMG-AntiPhishing: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-LinksScanning: Clean, bases: 2026/02/11 13:55:00
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.0.6478, bases: 2026/02/11 09:49:00 #28216014
+X-KSMG-AntiVirus-Status: Clean, skipped
+Return-Path: postmaster@example.test
+
+<html>
+<head>
+<title></title>
+<meta http-equiv=3D"content-type" conte=
+nt=3D"text/html; charset=3Dutf-8">
+<style>
+@media only screen and (max-=
+device-width: 600px) {
+.main{
+width: 100%;
+max-width: 560px;
+}
+.a=
+daptive_table{
+display: block;
+width: 100%;
+}
+.adaptive_table > tbo=
+dy{
+display: block;
+width: 100%;
+}
+.adaptive_table .adaptive_tr{
+=
+display: block;
+width: 100%;
+padding: 0 0 15px;
+}
+.adaptive_table .=
+adaptive_td{
+display: block;
+text-align: center;
+width: 100%;
+}
+.=
+adaptive_table .adaptive_td table{
+text-align: left;
+margin: 0 auto;
+=
+}
+.article_img img {
+max-width: 100%;
+max-height: 100%;
+height: aut=
+o;
+width: auto;
+}
+.preheader {
+display: none !important;
+}
+.pho=
+ne_font_m {
+font-size: 16px !important;
+}
+.phone_hidden {
+display: =
+none !important;
+}
+.phone_conf_speackers {
+display: block;
+float: l=
+eft;
+width: 50% !important;
+}
+}
+</style>
+</head>
+<body style=3D=
+"height: 100% !important; width: 100% !important; background-color: #ffffff=
+; margin: 0; padding: 0; font-family:Arial,Helvetica,sans-serif; font-weigh=
+t: normal; font-size: 15px;" bgcolor=3D"#ffffff" text=3D"#333333" topmargin=
+=3D"0" leftmargin=3D"0" rightmargin=3D"0" bottommargin=3D"0" link=3D"#6339f=
+5" alink=3D"#6339f5" vlink=3D"#6339f5" color=3D"#333333">
+<table border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"width: 100%; height: 10=
+0%; background-color: #ffffff;border-collapse:collapse;">
+<tr>
+<td styl=
+e=3D"vertical-align: top; padding:0 20px; background-color: #ffffff;" align=
+=3D"center">
+<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bo=
+rder=3D"0" style=3D"border-collapse:collapse;min-width:375px;max-width:560p=
+x;" class=3D"main">
+<tr>
+<td align=3D"left">
+<table border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width: 100%;border-=
+collapse:collapse;">
+<!-- header -->
+<tr>
+<td height=3D"10"><div styl=
+e=3D"line-height:0;"><div class=3D"preheader" style=3D"display:none;font-si=
+ze:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0=
+;overflow:hidden">=D0=A1=D1=83=D0=BC=D0=BC=D0=B0=D1=80=D0=BD=D0=B0=D1=8F =
+=D1=81=D1=82=D0=B0=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B0 =D0=B8 =D0=
+=BD=D0=B5=D1=81=D0=BA=D0=BE=D0=BB=D1=8C=D0=BA=D0=BE =D1=80=D0=B5=D0=BA=
+=D0=BE=D0=BC=D0=B5=D0=BD=D0=B4=D0=B0=D1=86=D0=B8=D0=B9, =D0=BA=D0=B0=D0=
+=BA =D0=B5=D1=91 =D1=83=D0=BB=D1=83=D1=87=D1=88=D0=B8=D1=82=D1=8C.</div></d=
+iv></td>
+</tr>
+<!-- end header -->
+<!-- body -->
+<!-- end body -->=
+
+<!-- newbody -->
+<tr>
+<td>
+<table width=3D"100%" cellspacing=3D"0"=
+ cellpadding=3D"0" border=3D"0" style=3D"border-collapse:collapse;" id=3D"r=
+nd177081919207">
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" style=3D"width:100%;border-collapse:collapse;"=
+ class=3D"adaptive_table">
+<tr>
+<td>
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;"=
+>
+<tr>
+<td style=3D"padding:10px 0">
+<table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;"=
+ dir=3D"rtl" class=3D"adaptive_table">
+<tr class=3D"adaptive_tr">
+<td v=
+align=3D"top" class=3D"adaptive_td article_img" dir=3D"ltr">
+<table borde=
+r=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-=
+collapse:collapse;" class=3D"adaptive_table">
+<tr>
+<td>
+<span style=
+=3D"color:#333333;font-size:24px;line-height:32px;font-family:Arial,Helveti=
+ca,sans-serif;">
+=D0=9E=D1=82=D1=87=D0=B5=D1=82 =D0=B7=D0=B0=C2=A0=D1=
+=8F=D0=BD=D0=B2=D0=B0=D1=80=D1=8C =D0=BF=D0=BE=C2=A0=D1=81=D1=82=D0=B0=
+=D1=82=D0=B8=D1=81=D1=82=D0=B8=D0=BA=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=D1=
+=89=D0=B5=D0=BD=D0=B8=D0=B9 =D1=80=D0=B5=D0=BC=D0=BE=D0=BD=D1=82=D0=BD=
+=D0=BE=D0=B9 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 =D0=A2=D0=
+=B5=D1=85=D0=BA=D0=BE=D0=BC=D0=BF=D0=BB=D0=B5=D0=BA=D1=81
+</span>
+</td>=
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>=
+
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+=
+<td style=3D"padding:10px 0;">
+<table border=3D"0" cellpadding=3D"0" cell=
+spacing=3D"0" width=3D"110" style=3D"border-collapse:collapse;">
+<tr>
+<=
+td style=3D"padding:5px 0 0;background:#6339f5;background:-moz-linear-gradi=
+ent(left, #6339f5 0%, #f84177 100%);background:-webkit-linear-gradient(left=
+, #6339f5 0%,#f84177 100%);background:linear-gradient(to right,#6339f5 0%,#=
+f84177 100%);line-height:0;height:0;"></td>
+</tr>
+</table>
+</td>
+</=
+tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:collaps=
+e;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#333333=
+;font-size:20px;line-height:30px;font-family:Arial,Helvetica,sans-serif;">=
+
+=D0=A2=D0=B5=D1=85=D0=BA=D0=BE=D0=BC=D0=BF=D0=BB=D0=B5=D0=BA=D1=81
+</s=
+pan>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>
+<table cellpad=
+ding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width:100%; max-width:=
+320px;border-collapse:collapse;" border=3D"0" class=3D"adaptive_table">
+<=
+tr>
+<td>
+<div style=3D"border: 1px solid #e0e2e8;border-radius: 6px;">=
+
+<table cellpadding=3D"16" cellspacing=3D"0" width=3D"100%" style=3D"widt=
+h:100%;border-collapse:collapse;" border=3D"0" class=3D"adaptive_table">
+=
+<tr valign=3D"top">
+<td width=3D"100%">
+<span style=3D"font-size:16px;l=
+ine-height:28px;color:#2c2d36;">=D0=9F=D0=BE=D0=B7=D0=B8=D1=86=D0=B8=D0=
+=B8</span>
+<br>
+<span style=3D"font-size:13px;line-height:20px;color:#2=
+c2d36;">=D0=92 =D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=D0=BE =D0=B7=
+=D0=B0=D0=BF=D1=80=D0=BE=D1=81=D1=83: =C2=AB=D0=A0=D0=B5=D0=BC=D0=BE=D0=
+=BD=D1=82 =D0=B6=D0=B5=D0=BB=D0=B5=D0=B7=D0=BD=D0=BE=D0=B4=D0=BE=D1=80=
+=D0=BE=D0=B6=D0=BD=D0=BE=D0=B3=D0=BE =D0=BE=D0=B1=D0=BE=D1=80=D1=83=D0=
+=B4=D0=BE=D0=B2=D0=B0=D0=BD=D0=B8=D1=8F =D0=B8=C2=A0=D1=82=D0=B5=D1=85=
+=D0=BD=D0=B8=D0=BA=D0=B8 =D0=B2=C2=A0=D0=A1=D0=B0=D0=BC=D0=B0=D1=80=D0=
+=B5=C2=BB</span>
+</td>
+<td align=3D"right" nowrap><span style=3D"font-s=
+ize:16px;line-height:24px;color:#fb403f;white-space:nowrap;">=E2=80=93=
+=E2=80=895</span></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>=
+
+<td height=3D"12" style=3D"line-height:0;"><div style=3D"line-height:0;"=
+></div></td>
+</tr>
+</table>
+<div style=3D"position: relative;border: =
+1px solid #e0e2e8;border-radius: 6px; max-width: 320px;">
+<table cellpadd=
+ing=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"width:100%;border-colla=
+pse:collapse;" border=3D"0" class=3D"adaptive_table">
+<tr>
+<td height=
+=3D"16" colspan=3D"5" style=3D"line-height:0;"><div style=3D"line-height:0;=
+"></div></td>
+</tr>
+<tr>
+<td width=3D"16"></td>
+<td width=3D"266">=
+
+<span style=3D"font-size:16px;line-height:24px;color:#2c2d36;">=D0=9F=
+=D0=BE=D0=BA=D0=B0=D0=B7=D1=8B</span>
+</td>
+<td width=3D"13"></td>
+<t=
+d align=3D"right">
+<span style=3D"font-size:16px;line-height:24px;color:#=
+2c2d36;white-space:nowrap;">11</span>
+</td>
+<td width=3D"16"></td>
+</=
+tr>
+<tr>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"line=
+-height:0;"><div style=3D"line-height:0;"></div></td>
+<td height=3D"16" a=
+lign=3D"center" style=3D"line-height:0;">
+<div style=3D"line-height:0; di=
+splay: inline-block; width: 13px; height:16px; background: url('https://zoo=
+example.test/images/example.test') #fff top center no-repeat;"></div>
+</td=
+>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"line-height:0=
+;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<tr>
+<td height=3D=
+"16" align=3D"center" colspan=3D"2" style=3D"line-height:0;border-top: 1px =
+solid #e0e2e8;"><div style=3D"line-height:0;"></div></td>
+<td height=3D"1=
+6" align=3D"center" style=3D"line-height:0;">
+<div style=3D"line-height:0=
+; display: inline-block; width: 13px; height:16px; background: url('https:/=
+/example.test/images/example.test') #fff bottom center no-repeat;"></div>=
+
+</td>
+<td height=3D"16" align=3D"center" colspan=3D"2" style=3D"line-h=
+eight:0;border-top: 1px solid #e0e2e8;"><div style=3D"line-height:0;"></div=
+></td>
+</tr>
+<tr>
+<td width=3D"16"></td>
+<td width=3D"">
+<span st=
+yle=3D"font-size:16px;line-height:24px;color:#2c2d36;">=D0=A3=D0=BD=D0=
+=B8=D0=BA=D0=B0=D0=BB=D1=8C=D0=BD=D1=8B=D0=B5 =D0=BF=D0=BE=D1=81=D0=B5=
+=D1=89=D0=B5=D0=BD=D0=B8=D1=8F</span>
+</td>
+<td width=3D"13"></td>
+<t=
+d align=3D"right">
+<span style=3D"font-size:16px;line-height:24px;color:#=
+2c2d36;white-space:nowrap;">2</span>
+</td>
+<td width=3D"16"></td>
+</t=
+r>
+<tr>
+<td height=3D"16" colspan=3D"5" style=3D"line-height:0;"><div s=
+tyle=3D"line-height:0;"></div></td>
+</tr>
+</table>
+</div>
+<br>
+</=
+td></tr>
+<tr>
+<td>
+<table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" style=3D"border-collapse:collapse;">
+<tr>
+<td sty=
+le=3D"padding:10px 0 30px;">
+<a href=3D"https://example.test/r/698c8e784f9=
+07054230f6d43/9ef3dbd282f25abeabc7db5e05ae267f/" style=3D"background-color:=
+#6339f5;border:1px solid #6339f5;border-radius:4px;color:#ffffff;display:bl=
+ock;display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:2=
+0px;font-weight:normal;text-align:center;text-decoration:none;line-height:2=
+4px;padding:8px 25px;-webkit-text-size-adjust:none;" target=3D"_blank">
+=
+=C2=A0=C2=A0=D0=9F=D0=BE=D0=B4=D1=80=D0=BE=D0=B1=D0=BD=D0=B5=D0=B5 =
+=E2=80=94 =D0=B2 =D0=BB=D0=B8=D1=87=D0=BD=D0=BE=D0=BC =D0=BA=D0=B0=D0=B1=
+=D0=B8=D0=BD=D0=B5=D1=82=D0=B5=C2=A0=C2=A0
+</a>
+</td>
+</tr>
+</table=
+>
+</td>
+</tr>
+<tr><td><br></td></tr>
+<tr>
+<td>
+<table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-coll=
+apse:collapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<table border=3D=
+"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"110" style=3D"border-colla=
+pse:collapse;">
+<tr>
+<td style=3D"padding:5px 0 0;background:#6339f5;ba=
+ckground:-moz-linear-gradient(left, #6339f5 0%, #f84177 100%);background:-w=
+ebkit-linear-gradient(left, #6339f5 0%,#f84177 100%);background:linear-grad=
+ient(to right,#6339f5 0%,#f84177 100%);line-height:0;height:0;"></td>
+</t=
+r>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<t=
+able border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=
+=3D"border-collapse:collapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<=
+span style=3D"color:#333333;font-size:20px;line-height:30px;font-family:Ari=
+al,Helvetica,sans-serif;">
+=D0=9A=D0=B0=D0=BA =D1=83=D0=BB=D1=83=D1=87=
+=D1=88=D0=B8=D1=82=D1=8C =D0=BF=D0=BE=D0=BA=D0=B0=D0=B7=D0=B0=D1=82=D0=
+=B5=D0=BB=D0=B8 =D1=83=C2=A0=D1=80=D0=B5=D0=BC=D0=BE=D0=BD=D1=82=D0=BD=
+=D0=BE=D0=B9 =D0=BA=D0=BE=D0=BC=D0=BF=D0=B0=D0=BD=D0=B8=D0=B8 =D0=A2=D0=
+=B5=D1=85=D0=BA=D0=BE=D0=BC=D0=BF=D0=BB=D0=B5=D0=BA=D1=81:
+</span>
+</td=
+>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<table border=3D"0" ce=
+llpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse:c=
+ollapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color:#=
+333333;font-size:16px;line-height:23px;font-family:Arial,Helvetica,sans-ser=
+if;">
+=D0=94=D0=BE=D0=B1=D0=B0=D0=B2=D1=8C=D1=82=D0=B5 =D1=84=D0=BE=D1=
+=82=D0=BE=D0=B3=D1=80=D0=B0=D1=84=D0=B8=D0=B8 =D0=B7=D0=B0=D0=B2=D0=B5=
+=D0=B4=D0=B5=D0=BD=D0=B8=D1=8F <table border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" width=3D"=C2=BB100%=C2=BB" style=3D"=C2=BBborder-collapse:colla=
+pse;=C2=BB">
+<tr>
+<td valign=3D"top" class=3D"article_img" style=3D"pad=
+ding:10px 0;">
+<p style=3D"line-height:0;margin:0;">
+<img src=3D"https:=
+//example.test/fE20dQf-UmGDxGruyTFJKw/a/3/5c923b03c4f77e0302667d75_5c924f846=
+example.test" style=3D"border-radius: 4px;max-width:560px;width: 100%;">
+</p>=
+
+</td>
+</tr>
+</table>
+</span>
+</td>
+</tr>
+</table>
+<table b=
+order=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"bor=
+der-collapse:collapse;">
+<tr>
+<td style=3D"padding:10px 0 30px;">
+<a =
+href=3D"https://example.test/r/698c8e784f907054230f6d44/0a95e266aa283be150b4=
+3353a63f345e/" style=3D"background-color:#6339f5;border:1px solid #6339f5;b=
+order-radius:4px;color:#ffffff;display:block;display:inline-block;font-fami=
+ly:Arial,Helvetica,sans-serif;font-size:20px;font-weight:normal;text-align:=
+center;text-decoration:none;line-height:24px;padding:8px 25px;-webkit-text-=
+size-adjust:none;" target=3D"_blank">
+=D0=94=D0=BE=D0=B1=D0=B0=D0=B2=
+=D0=B8=D1=82=D1=8C
+</a>
+</td>
+</tr>
+</table>
+<table border=3D"0" =
+cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collapse=
+:collapse;">
+<tr>
+<td style=3D"padding:10px 0;">
+<span style=3D"color=
+:#333333;font-size:16px;line-height:23px;font-family:Arial,Helvetica,sans-s=
+erif;">
+=D0=9F=D0=BE=D0=BC=D0=B8=D0=BC=D0=BE =D1=8D=D1=82=D0=BE=D0=B3=
+=D0=BE, =D0=BF=D0=BE=D0=B4=D0=BD=D1=8F=D1=82=D1=8C=D1=81=D1=8F =D0=B2=D1=
+=8B=D1=88=D0=B5 =D0=B2=C2=A0=D0=B2=D1=8B=D0=B4=D0=B0=D1=87=D0=B5 =D0=BF=
+=D0=BE=D0=BC=D0=BE=D0=B3=D1=83=D1=82:<br>
+=E2=80=94 <a href=3D"https://zo=
+example.test/r/698c8e784f907054230f6d45/35df3418fa744ccee6fc9307a0f26390/" tar=
+get=3D"_blank" style=3D"color:#6339f5;text-decoration:none">=D0=97=D0=B0=
+=D0=B3=D1=80=D1=83=D0=B6=D0=B5=D0=BD=D0=BD=D1=8B=D0=B9 =D0=BF=D1=80=D0=
+=B0=D0=B9=D1=81-=D0=BB=D0=B8=D1=81=D1=82</a><br>
+=E2=80=94 <a href=3D"htt=
+ps://example.test/r/698c8e784f907054230f6d46/55f35fd6a4a2fd4bd221b48fbf98384=
+4/" target=3D"_blank" style=3D"color:#6339f5;text-decoration:none">=D0=
+=A3=D0=BD=D0=B8=D0=BA=D0=B0=D0=BB=D1=8C=D0=BD=D0=BE=D0=B5 =D0=BE=D0=BF=
+=D0=B8=D1=81=D0=B0=D0=BD=D0=B8=D0=B5 =D0=B2=D0=B0=D1=88=D0=B5=D0=B3=D0=
+=BE =D0=B7=D0=B0=D0=B2=D0=B5=D0=B4=D0=B5=D0=BD=D0=B8=D1=8F</a><br>
+</span=
+>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<=
+/table>
+</td>
+</tr>
+<!-- offset -->
+<tr>
+<td height=3D"30" style=
+=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+<!-=
+- offset -->
+<!-- end newbody -->
+<!-- footer -->
+<tr>
+<td>
+<tabl=
+e border=3D"0" cellpadding=3D"0" cellspacing=3D"0" style=3D"border-collapse=
+:collapse;">
+<tr>
+<td style=3D"padding:20px 0;border-top:1px solid #e2e=
+2e6;">
+<span style=3D"color:#333333;font-size:16px;line-height:25px;font-=
+family:Arial,Helvetica,sans-serif;text-decoration:none;">=D0=92=D1=8B =
+=D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B8=D0=BB=D0=B8 =D1=8D=D1=82=D0=BE =D0=
+=BF=D0=B8=D1=81=D1=8C=D0=BC=D0=BE, =D0=BF=D0=BE=D1=82=D0=BE=D0=BC=D1=83 =
+=D1=87=D1=82=D0=BE =D0=B8=D0=BC=D0=B5=D0=B5=D1=82=D0=B5 =D0=B4=D0=BE=D1=
+=81=D1=82=D1=83=D0=BF =D0=B2 <a href=3D"https://example.test/r/698c8e784f907=
+054230f6d47/94850556631ff39ee1341b2f53565dd1/" style=3D"color:#6339f5;text-=
+decoration:none;" target=3D"_blank">=D0=9B=D0=B8=D1=87=D0=BD=D1=8B=D0=B9 =
+=D0=BA=D0=B0=D0=B1=D0=B8=D0=BD=D0=B5=D1=82</a>.=09<br><a href=3D"https://zo=
+example.test/r/698c8e784f907054230f6d42/0d4ffcf46660604c1d72222f23ea1021/" sty=
+le=3D"color:#6339f5;text-decoration:none;" target=3D"_blank">=D0=9D=D0=
+=B5 =D0=BF=D0=BE=D0=BB=D1=83=D1=87=D0=B0=D1=82=D1=8C =D0=B1=D0=BE=D0=BB=
+=D1=8C=D1=88=D0=B5 =D1=82=D0=B0=D0=BA=D0=B8=D1=85 =D0=BF=D0=B8=D1=81=D0=
+=B5=D0=BC</a>.</span>=09</td>
+</tr>
+<tr>
+<td>
+<span style=3D"color:=
+#bbbcc4;font-size:16px;line-height:25px;font-family:Arial,Helvetica,sans-se=
+rif;text-decoration:none;">=D0=A1 =D1=83=D0=B2=D0=B0=D0=B6=D0=B5=D0=BD=
+=D0=B8=D0=B5=D0=BC, =D0=BA=D0=BE=D0=BC=D0=B0=D0=BD=D0=B4=D0=B0 example.test</spa=
+n>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height=3D"30" st=
+yle=3D"line-height:0;"><div style=3D"line-height:0;"></div></td>
+</tr>
+=
+<!-- end footer -->
+<tr>
+<td><img src=3D"https://example.test/i/698c8e78=
+4f907054230f6d41/example.test" style=3D"display:none" width=3D"1" height=3D"=
+1" border=3D"0"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>=
+
+</tr>
+</table>
+</body>
+</html>
+
+--006d1d26-1277-4b17-af27-a47fdc766190--
