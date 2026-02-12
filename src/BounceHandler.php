@@ -133,6 +133,16 @@ final class BounceHandler {
 		if (array_key_exists('Message-id', $originalLetterHeader) && is_string($originalLetterHeader['Message-id'])) {
 			$messageId = $originalLetterHeader['Message-id'];
 		}
+		if ($messageId === '' && array_key_exists('References', $headHash) && is_string($headHash['References'])) {
+			if (preg_match('/<[^>]+>/', $headHash['References'], $refMatch) === 1) {
+				$messageId = $refMatch[0];
+			}
+		}
+		if ($messageId === '' && array_key_exists('In-reply-to', $headHash) && is_string($headHash['In-reply-to'])) {
+			if (preg_match('/<[^>]+>/', $headHash['In-reply-to'], $replyMatch) === 1) {
+				$messageId = $replyMatch[0];
+			}
+		}
 
 		$subject = '';
 		if (array_key_exists('Subject', $originalLetterHeader) && is_string($originalLetterHeader['Subject'])) {
@@ -200,8 +210,20 @@ final class BounceHandler {
 	): string {
 		if ($mimeSections['returnedMessageBodyPart'] !== '') {
 			[, $letter] = MimeParser::splitHeadAndBody($mimeSections['returnedMessageBodyPart']);
+			if ($letter !== '') {
+				return $letter;
+			}
+		}
 
-			return $letter;
+		// Fallback for 2-part MIME bounces where original message is in part 2 instead of part 3
+		if ($mimeSections['machineParsableBodyPart'] !== '') {
+			[$mpbpHead] = MimeParser::splitHeadAndBody($mimeSections['machineParsableBodyPart']);
+			if (stripos($mpbpHead, 'message/rfc822') !== false) {
+				[, $letter] = MimeParser::splitHeadAndBody($mimeSections['machineParsableBodyPart']);
+				if ($letter !== '') {
+					return $letter;
+				}
+			}
 		}
 
 		$yourCopyMarker = '------ This is a copy of your message, including all the headers. ------';

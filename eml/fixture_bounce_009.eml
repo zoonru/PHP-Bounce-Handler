@@ -1,0 +1,56 @@
+Delivered-To: postmaster@example.test
+Return-Path: <postmaster@mailer2.example.test>
+X-Failed-Recipients: recipient.three@example.test
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@mailer2.example.test>
+To: postmaster@example.test
+References: <ref-message-001@example.test>
+Content-Type: multipart/report; report-type=delivery-status; boundary=BOUNDARY-BOUNCE-009
+MIME-Version: 1.0
+Subject: Mail delivery failed
+Message-Id: <bounce-message-001@example.test>
+Date: Wed, 11 Feb 2026 11:18:40 +0300
+
+--BOUNDARY-BOUNCE-009
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message sent by
+
+  <sender@example.test>
+
+could not be delivered to one or more of its recipients. The following
+address(es) failed:
+
+  recipient.three@example.test
+    host mx.remote-3.example.net [198.51.100.30]
+    SMTP error from remote mail server after RCPT TO:<recipient.three@example.test>:
+    550 zen.example.test Listed by CSS
+
+--BOUNDARY-BOUNCE-009
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; mailer2.example.test
+
+Action: failed
+Final-Recipient: rfc822;recipient.three@example.test
+Status: 5.0.0
+Remote-MTA: dns; mx.remote-3.example.net
+Diagnostic-Code: smtp; 550 zen.example.test Listed by CSS
+
+--BOUNDARY-BOUNCE-009
+Content-type: message/rfc822
+
+Return-path: <sender@example.test>
+From: Sender Team <sender@example.test>
+Message-ID: <original-message-001@example.test>
+Subject: Monthly report: Sample Org
+To: recipient.three@example.test
+MIME-Version: 1.0
+Date: Wed, 11 Feb 2026 11:18:37 +0300
+Content-Type: text/plain; charset=utf-8
+
+Original message body.
+
+--BOUNDARY-BOUNCE-009--
