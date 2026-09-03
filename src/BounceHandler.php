@@ -8,7 +8,6 @@ use Zoon\BounceHandler\Detector\AutoResponseDetector;
 use Zoon\BounceHandler\Detector\BounceDetector;
 use Zoon\BounceHandler\Detector\FblDetector;
 use Zoon\BounceHandler\Enum\BounceAction;
-use Zoon\BounceHandler\Enum\BounceReason;
 use Zoon\BounceHandler\Enum\EmailType;
 use Zoon\BounceHandler\Extractor\EmailAddressExtractor;
 use Zoon\BounceHandler\Parser\DsnParser;
@@ -176,12 +175,6 @@ final class BounceHandler {
 			}
 
 			$reason = StatusCodeResolver::getReason($deliveryStatus);
-			if (
-				$reason === BounceReason::Filtered
-				&& $emailType !== EmailType::Fbl
-			) {
-				$reason = BounceReason::UserUnknown;
-			}
 
 			$results[] = new BounceResult(
 				emailType: $emailType ?? EmailType::Bounce,
