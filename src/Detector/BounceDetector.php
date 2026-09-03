@@ -34,13 +34,36 @@ final class BounceDetector {
 	}
 
 	/**
+	 * Longest line, in bytes, that the combined prefilter is worth running on.
+	 *
+	 * The two strategies have opposite cost shapes. The per-pattern scan pays ~200 preg_match
+	 * calls per line, but each is a literal search PCRE can start with a memchr, so it costs
+	 * almost nothing per byte. The combined alternation is a single call, but its start-code-unit
+	 * bitmap covers most letters, so nearly every offset retries ~200 branches and the cost grows
+	 * with the length of the line. Measured on PHP 8.4 / PCRE 10.42 the two meet near 350 bytes,
+	 * and past that the prefilter loses without bound: on one unwrapped 110 KB HTML line the scan
+	 * takes 0.9 ms and the prefilter 6.0 ms.
+	 *
+	 * Real message bodies sit far below the crossover - over the 37868 lines of the eml/ corpus
+	 * p99 is 104 bytes and the longest line is 972 - so the prefilter still covers nearly every
+	 * line, while unwrapped 8bit HTML in a returned original message no longer regresses.
+	 */
+	private const int PREFILTER_MAX_LINE_LENGTH = 256;
+
+	private static ?bool $prefilterUsable = null;
+
+	/**
 	 * Returns the status code of the first BOUNCE_LIST pattern matching the line, or null when none does.
 	 */
 	public static function matchBouncePattern(string $line): ?string {
 		// Cheap prefilter: one combined pattern instead of ~200 preg_match calls per line.
 		// Exactly 0 means no alternation branch matched, so the detailed scan cannot match either.
 		// On a PCRE error (false) we deliberately fall through to the scan rather than lose a match.
-		if (preg_match(BouncePatterns::getCombinedBounceRegex(), $line) === 0) {
+		if (
+			strlen($line) <= self::PREFILTER_MAX_LINE_LENGTH
+			&& self::isPrefilterUsable()
+			&& preg_match(BouncePatterns::getCombinedBounceRegex(), $line) === 0
+		) {
 			return null;
 		}
 
@@ -55,6 +78,19 @@ final class BounceDetector {
 		}
 
 		return null;
+	}
+
+	/**
+	 * The prefilter only pays off while PCRE can JIT-compile it. Interpreted, the combined
+	 * alternation is several times slower than the per-pattern scan at any line length, so on a
+	 * build without JIT support - or with pcre.jit turned off - the scan is used unconditionally.
+	 */
+	private static function isPrefilterUsable(): bool {
+		if (self::$prefilterUsable === null) {
+			self::$prefilterUsable = PCRE_JIT_SUPPORT === true && ini_get('pcre.jit') !== '0';
+		}
+
+		return self::$prefilterUsable;
 	}
 
 	/**

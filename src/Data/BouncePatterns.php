@@ -295,6 +295,10 @@ final class BouncePatterns {
 	 * A line that does not match it cannot match any individual pattern either, so it lets
 	 * callers skip the ~200-iteration scan over BOUNCE_LIST entirely. Built once per process.
 	 *
+	 * The delimiter and flags must stay identical to the ones the scan itself uses in
+	 * BounceDetector::matchBouncePattern(); widening one side only (say to /ui for a Cyrillic
+	 * pattern) turns this into a filter that rejects lines the scan would have matched.
+	 *
 	 * @return non-empty-string
 	 */
 	public static function getCombinedBounceRegex(): string {
