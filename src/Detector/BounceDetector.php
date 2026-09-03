@@ -34,6 +34,30 @@ final class BounceDetector {
 	}
 
 	/**
+	 * Returns the status code of the first BOUNCE_LIST pattern matching the line, or null when none does.
+	 */
+	public static function matchBouncePattern(string $line): ?string {
+		// Cheap prefilter: one combined pattern instead of ~200 preg_match calls per line.
+		// Exactly 0 means no alternation branch matched, so the detailed scan cannot match either.
+		// On a PCRE error (false) we deliberately fall through to the scan rather than lose a match.
+		if (preg_match(BouncePatterns::getCombinedBounceRegex(), $line) === 0) {
+			return null;
+		}
+
+		foreach (BouncePatterns::BOUNCE_LIST as $bouncetext => $bouncecode) {
+			if (preg_match("/{$bouncetext}/i", $line, $matches) === 1) {
+				if (array_key_exists(1, $matches) && $bouncecode === 'x') {
+					return $matches[1];
+				}
+
+				return $bouncecode;
+			}
+		}
+
+		return null;
+	}
+
+	/**
 	 * @param list<string> $bodyHash
 	 */
 	public static function getStatusCodeFromText(string $recipient, int $startIndex, array $bodyHash): string {
@@ -64,14 +88,9 @@ final class BounceDetector {
 				continue;
 			}
 
-			foreach (BouncePatterns::BOUNCE_LIST as $bouncetext => $bouncecode) {
-				if (preg_match("/{$bouncetext}/i", $line, $matches) === 1) {
-					if (array_key_exists(1, $matches) && $bouncecode === 'x') {
-						return $matches[1];
-					}
-
-					return $bouncecode;
-				}
+			$bounceCode = self::matchBouncePattern($line);
+			if ($bounceCode !== null) {
+				return $bounceCode;
 			}
 
 			if (preg_match('/\W([245]\.[01234567]\.\d{1,2})\W/', $line, $matches) === 1) {
