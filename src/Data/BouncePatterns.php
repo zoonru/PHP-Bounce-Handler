@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Zoon\BounceHandler\Data;
 
 final class BouncePatterns {
+	/** @var non-empty-string|null */
+	private static ?string $combinedBounceRegex = null;
+
 	/**
 	 * Regex-to-status-code mapping for bounce detection.
 	 * Value 'x' means extract the code from regex capture group 1.
@@ -285,4 +288,24 @@ final class BouncePatterns {
 		// "Ваше сообщение не доставлено" in UTF-8 hex
 		'Ваше сообщение не доставлено',
 	];
+
+	/**
+	 * Single alternation built from every BOUNCE_LIST pattern.
+	 *
+	 * A line that does not match it cannot match any individual pattern either, so it lets
+	 * callers skip the ~200-iteration scan over BOUNCE_LIST entirely. Built once per process.
+	 *
+	 * The delimiter and flags must stay identical to the ones the scan itself uses in
+	 * BounceDetector::matchBouncePattern(); widening one side only (say to /ui for a Cyrillic
+	 * pattern) turns this into a filter that rejects lines the scan would have matched.
+	 *
+	 * @return non-empty-string
+	 */
+	public static function getCombinedBounceRegex(): string {
+		if (self::$combinedBounceRegex === null) {
+			self::$combinedBounceRegex = '/(?:' . implode(')|(?:', array_keys(self::BOUNCE_LIST)) . ')/i';
+		}
+
+		return self::$combinedBounceRegex;
+	}
 }
