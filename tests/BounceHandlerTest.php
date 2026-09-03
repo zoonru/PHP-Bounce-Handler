@@ -63,7 +63,7 @@ final class BounceHandlerTest extends TestCase {
 		self::assertSame(BounceReason::UserUnknown, $results[0]->reason);
 	}
 
-	public function testParsesMailDeliveryFailedFixtureAsUserUnknownBounce(): void {
+	public function testParsesMailDeliveryFailedFixtureAsFilteredBounce(): void {
 		$handler = new BounceHandler();
 		$results = $handler->parse($this->readFixture('fixture_bounce_001.eml'));
 
@@ -72,7 +72,19 @@ final class BounceHandlerTest extends TestCase {
 		self::assertSame(BounceAction::Failed, $results[0]->action);
 		self::assertSame('5.7.1', $results[0]->deliveryStatus);
 		self::assertSame('recipient.one@example.test', $results[0]->recipient);
-		self::assertSame(BounceReason::UserUnknown, $results[0]->reason);
+		self::assertSame(BounceReason::Filtered, $results[0]->reason);
+	}
+
+	public function testKeepsFilteredReasonForNonFblBounceWithStatus571(): void {
+		$handler = new BounceHandler();
+		$results = $handler->parse($this->readFixture('32.eml'));
+
+		self::assertCount(1, $results);
+		self::assertSame(EmailType::Bounce, $results[0]->emailType);
+		self::assertSame(BounceAction::Failed, $results[0]->action);
+		self::assertSame('5.7.1', $results[0]->deliveryStatus);
+		self::assertSame('stellamiranda@interlink.com.ar', $results[0]->recipient);
+		self::assertSame(BounceReason::Filtered, $results[0]->reason);
 	}
 
 	public function testDetectsAutoResponseFromHeaders(): void {
