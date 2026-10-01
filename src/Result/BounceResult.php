@@ -8,7 +8,13 @@ use Zoon\BounceHandler\Enum\BounceAction;
 use Zoon\BounceHandler\Enum\BounceReason;
 use Zoon\BounceHandler\Enum\EmailType;
 
+/**
+ * @psalm-immutable
+ */
 final readonly class BounceResult {
+	/**
+	 * @psalm-capabilities read-props
+	 */
 	public function __construct(
 		public EmailType $emailType,
 		public BounceAction $action,

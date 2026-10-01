@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace Zoon\BounceHandler\Parser;
 
+/**
+ * @psalm-pure
+ */
 final class MimeParser {
 	/**
 	 * @return array{string, string}
+	 * @psalm-pure
 	 */
 	public static function splitHeadAndBody(string $letter): array {
 		$parts = preg_split("/\r\n\r\n/", $letter, 2);
@@ -19,6 +23,7 @@ final class MimeParser {
 
 	/**
 	 * @return array{firstBodyPart: string, machineParsableBodyPart: string, returnedMessageBodyPart: string}
+	 * @psalm-pure
 	 */
 	public static function parseSections(string $body, string $boundary): array {
 		if ($boundary === '') {
@@ -44,6 +49,9 @@ final class MimeParser {
 		];
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	private static function decodeContentTransferEncoding(string $mimePart): string {
 		$encoding = '7bit';
 		$decoded = '';
@@ -64,12 +72,18 @@ final class MimeParser {
 		return $decoded;
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	private static function decodeBase64Line(string $line): string {
 		$decoded = base64_decode($line, true);
 
 		return $decoded !== false ? $decoded : '';
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	private static function decodeQuotedPrintableLine(string $line): string {
 		if (str_ends_with($line, '=')) {
 			return quoted_printable_decode(substr($line, 0, -1));
@@ -78,6 +92,9 @@ final class MimeParser {
 		return quoted_printable_decode($line . "\r\n");
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function normalizeLineEndings(string $email): string {
 		$email = str_replace("\r\n", "\n", $email);
 

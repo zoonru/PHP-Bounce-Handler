@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Zoon\BounceHandler\Data;
 
+/**
+ * @psalm-pure
+ */
 final class StatusCodes {
 	public const array CLASSES = [
 		'2' => [

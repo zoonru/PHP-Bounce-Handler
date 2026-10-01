@@ -103,6 +103,9 @@ final class FblDetector {
 		return false;
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	private static function normalizeAddressField(string $value): string {
 		$value = trim($value);
 		if (preg_match('/^[a-z0-9_-]+;\s*/i', $value) === 1) {

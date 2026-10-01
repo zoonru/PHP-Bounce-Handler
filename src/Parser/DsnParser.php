@@ -88,6 +88,7 @@ final class DsnParser {
 
 	/**
 	 * @return array<string, mixed>
+	 * @psalm-pure
 	 */
 	private static function splitDsnFields(string $dsnFields): array {
 		$parts = explode("\r\n\r\n", $dsnFields);
@@ -122,6 +123,7 @@ final class DsnParser {
 	/**
 	 * @param list<string> $arr
 	 * @return array{addr: string, type: string}
+	 * @psalm-pure
 	 */
 	private static function formatFinalRecipient(array $arr): array {
 		if (count($arr) > 1) {

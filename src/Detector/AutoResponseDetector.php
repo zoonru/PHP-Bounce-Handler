@@ -6,10 +6,14 @@ namespace Zoon\BounceHandler\Detector;
 
 use Zoon\BounceHandler\Data\BouncePatterns;
 
+/**
+ * @psalm-pure
+ */
 final class AutoResponseDetector {
 	/**
 	 * @param array<string, string|list<string>|array<string, string>> $headHash
 	 * @return array{isAutoResponse: bool, autoResponse: string}
+	 * @psalm-pure
 	 */
 	public static function detect(array $headHash): array {
 		foreach (
