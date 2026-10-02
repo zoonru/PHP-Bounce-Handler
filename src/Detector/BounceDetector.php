@@ -7,9 +7,13 @@ namespace Zoon\BounceHandler\Detector;
 use Zoon\BounceHandler\Data\BouncePatterns;
 use Zoon\BounceHandler\Extractor\EmailAddressExtractor;
 
+/**
+ * @psalm-pure
+ */
 final class BounceDetector {
 	/**
 	 * @param array<string, string|list<string>|array<string, string>> $headHash
+	 * @psalm-pure
 	 */
 	public static function isBounce(array $headHash): bool {
 		foreach (BouncePatterns::BOUNCE_SUBJECTS as $s) {
@@ -35,6 +39,7 @@ final class BounceDetector {
 
 	/**
 	 * @param list<string> $bodyHash
+	 * @psalm-pure
 	 */
 	public static function getStatusCodeFromText(string $recipient, int $startIndex, array $bodyHash): string {
 		for ($i = $startIndex, $iMax = count($bodyHash); $i < $iMax; $i++) {

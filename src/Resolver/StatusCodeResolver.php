@@ -8,9 +8,13 @@ use Zoon\BounceHandler\Data\StatusCodes;
 use Zoon\BounceHandler\Enum\BounceAction;
 use Zoon\BounceHandler\Enum\BounceReason;
 
+/**
+ * @psalm-pure
+ */
 final class StatusCodeResolver {
 	/**
 	 * @return array{code: string, text: string}
+	 * @psalm-pure
 	 */
 	public static function format(string $code): array {
 		if (preg_match('/([245]\.[01234567]\.\d{1,2})\s*(.*)/', $code, $matches) === 1) {
@@ -30,6 +34,9 @@ final class StatusCodeResolver {
 		return ['code' => '', 'text' => ''];
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function getAction(string $code): ?BounceAction {
 		if ($code === '') {
 			return null;
@@ -48,6 +55,7 @@ final class StatusCodeResolver {
 
 	/**
 	 * Returns action string for compatibility with old output format.
+	 * @psalm-pure
 	 */
 	public static function getActionString(string $code): string {
 		$action = self::getAction($code);
@@ -55,6 +63,9 @@ final class StatusCodeResolver {
 		return $action !== null ? $action->value : '';
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function getReason(string $code): BounceReason {
 		if ($code === '5.7.1') {
 			return BounceReason::Filtered;
@@ -67,6 +78,9 @@ final class StatusCodeResolver {
 		return BounceReason::UserUnknown;
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function getStatusMessages(string $code): string {
 		$ret = self::format($code);
 		if ($ret['code'] === '') {
@@ -98,6 +112,9 @@ final class StatusCodeResolver {
 		return "<P><B>{$classTitle}</B> - {$classDescr}  <B>{$subTitle}</B> - {$subDescr}</P>";
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function decodeDiagnostic(string $dcode): string {
 		if (preg_match('/(\d\.\d\.\d)\s/', $dcode, $array) === 1) {
 			return $array[1];

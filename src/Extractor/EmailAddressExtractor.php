@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace Zoon\BounceHandler\Extractor;
 
+/**
+ * @psalm-pure
+ */
 final class EmailAddressExtractor {
 	/**
 	 * @return list<non-empty-string>
+	 * @psalm-pure
 	 */
 	public static function findAll(string $text): array {
 		if (preg_match('/\b([A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4})\b/i', $text, $matches) === 1) {
@@ -19,6 +23,9 @@ final class EmailAddressExtractor {
 		return [];
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function stripAngleBrackets(string $str): string {
 		if (preg_match('/[<\[](.*)[>\]]/', $str, $matches) === 1) {
 			return trim($matches[1]);
@@ -27,6 +34,9 @@ final class EmailAddressExtractor {
 		return trim($str);
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	public static function extractAddress(string $str): string {
 		$result = '';
 		$parts = preg_split('/[ "\'\<\>:\(\)\[\]]/', $str);
@@ -45,6 +55,7 @@ final class EmailAddressExtractor {
 
 	/**
 	 * @param array<string, array{addr?: string, type?: string}|string> $perRcpt
+	 * @psalm-pure
 	 */
 	public static function findRecipient(array $perRcpt): string {
 		$recipient = '';

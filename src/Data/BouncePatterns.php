@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Zoon\BounceHandler\Data;
 
+/**
+ * @psalm-pure
+ */
 final class BouncePatterns {
 	/**
 	 * Regex-to-status-code mapping for bounce detection.

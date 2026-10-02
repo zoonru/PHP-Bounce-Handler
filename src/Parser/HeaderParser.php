@@ -86,6 +86,7 @@ final class HeaderParser {
 
 	/**
 	 * @return array<string, string>
+	 * @psalm-pure
 	 */
 	private static function parseContentType(string $contentType): array {
 		$multipartReport = explode(';', $contentType);

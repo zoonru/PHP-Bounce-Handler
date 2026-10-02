@@ -195,6 +195,7 @@ final class BounceHandler {
 
 	/**
 	 * @param array{firstBodyPart: string, machineParsableBodyPart: string, returnedMessageBodyPart: string} $mimeSections
+	 * @psalm-pure
 	 */
 	private function recoverOriginalLetter(
 		array $mimeSections,
@@ -253,6 +254,7 @@ final class BounceHandler {
 
 	/**
 	 * @param array<string, string|list<string>|array<string, string>> $headHash
+	 * @psalm-pure
 	 */
 	private function isRfc1892MultipartReport(array $headHash, string $boundary): bool {
 		return array_key_exists('Content-type', $headHash)
@@ -292,6 +294,7 @@ final class BounceHandler {
 	/**
 	 * @param array<string, string|list<string>|array<string, string>> $headHash
 	 * @return list<array{action: string, deliverystatus: string, recipient: string, autoresponse: string}>
+	 * @psalm-pure
 	 */
 	private function processAutoResponse(array $headHash, string $body, string $autoResponseText): array {
 		$recipient = '';
@@ -363,6 +366,7 @@ final class BounceHandler {
 	/**
 	 * @param list<string> $bodyHash
 	 * @return list<array{action: string, deliverystatus: string, recipient: string}>
+	 * @psalm-pure
 	 */
 	private function processXFailedRecipients(string $xFailedRecipients, array $bodyHash): array {
 		$output = [];
@@ -383,6 +387,7 @@ final class BounceHandler {
 	/**
 	 * @param list<string> $bodyHash
 	 * @return list<array{action: string, deliverystatus: string, recipient: string}>
+	 * @psalm-pure
 	 */
 	private function processGenericBounceWithMime(string $firstBodyPart, array $bodyHash): array {
 		$output = [];
@@ -403,6 +408,7 @@ final class BounceHandler {
 	/**
 	 * @param list<string> $bodyHash
 	 * @return list<array{action: string, deliverystatus: string, recipient: string}>
+	 * @psalm-pure
 	 */
 	private function processLastDitchBounce(string $body, array $bodyHash): array {
 		$output = [];
@@ -422,6 +428,7 @@ final class BounceHandler {
 
 	/**
 	 * @param list<string> $bodyHash
+	 * @psalm-pure
 	 */
 	private function extractDiagnosticCode(array $bodyHash): ?DiagnosticCode {
 		foreach ($bodyHash as $line) {
@@ -438,6 +445,9 @@ final class BounceHandler {
 		return null;
 	}
 
+	/**
+	 * @psalm-pure
+	 */
 	private function determineEmailType(bool $isBounce, bool $isFbl, bool $isAutoResponse): ?EmailType {
 		if ($isBounce) {
 			return EmailType::Bounce;
